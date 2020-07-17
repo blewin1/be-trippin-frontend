@@ -7,7 +7,7 @@ import TripPage from '../../routes/TripPage/TripPage'
 
 const Main = () => {
     return (
-        <div className="main">
+        <main>
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/team" component={TeamPage} />
@@ -15,7 +15,7 @@ const Main = () => {
                 <Route path="/trip/:id" component={TripPage} />
                 <Route path="*" render={() => <Redirect to='/' />} />
             </Switch>
-        </div>
+        </main>
     )
 }
 
