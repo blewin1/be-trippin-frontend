@@ -2,8 +2,8 @@
 ## Description
 Be Trippin is a road trip planning app!
 ### Project Links
-- [Back end git]() 
-- [Front end git]()
+- [Back end git](https://github.com/blewin1/be-trippin-frontend) 
+- [Front end git](https://github.com/blewin1/be-trippin-backend)
 
 ### User Stories
 - As a User, I can see my route with the stops on it
