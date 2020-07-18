@@ -46,7 +46,7 @@ Be Trippin is a road trip planning app!
 
 #### Component Tree
 
-[Be Trippin Components](https://res.cloudinary.com/gaseir526-tashiono/image/upload/v1595022327/BeTrippin%20App%20Wireframes/BeTrippin_Component_Tree_nhapfq.png)
+[Be Trippin Components](https://res.cloudinary.com/gaseir526-tashiono/image/upload/v1595090477/BeTrippin%20App%20Wireframes/BeTrippin_Component_Tree_m1pzev.png)
 
 ### Time/Priority Matrix
 
