@@ -2,21 +2,46 @@
   position: fixed;
   width: 100vw;
   max-width: 500px;
+  min-width: 500px;
   height: 100vh;
-  top: 150px; // adjust element once we have a nav bar???
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(61, 190, 226, 0.5);
   z-index: 2; // the higher the number, the more the element will be on top of the everything
   clip-path: ellipse(250px 500px at 30% 40%);
+  // Will need a better way to adjust for overflow of packing list items
+  overflow-y: scroll;
 }
 
 .packing-list {
-  background-color: #3dbee2;
-  position: fixed;
-  top: 150px;
-  bottom: 0px;
+  background-color: #ffa800;
+  position: absolute;
   width: 100vw;
+  height: 100vh;
   max-width: 425px;
   text-align: left;
-  clip-path: ellipse(240px 490px at 30% 50%);
+  clip-path: ellipse(230px 600px at 30% 50%);
   padding: 30px;
+  color: white;
+  font-weight: 700;
 }
+
+// This is for IPad Pro
+.packing-list p {
+  padding-top: 150px;
+}
+
+.packing-list-items {
+  position: relative;
+}
+
+.packing-list-items li {
+  padding: 5px;
+}
+.delete-button {
+  position: absolute;
+  left: 200px;
+  background-color: #3dbee2;
+  color: white;
+}
+
+// Media query needed for IPadPro
+// padding-top should be bigger for form?

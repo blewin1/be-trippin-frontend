@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import PackingList from "../../sideWindows/PackingList/PackingList";
 import SuitcaseButton from "../../sideWindows/PackingList/SuitcaseButton";
+import CountdownTimer from "../../sideWindows/CountdownTimer/CountdownTimer";
+import "./TripPage.scss";
 
 const TripPage = () => {
   const [packingListOpen, setPackingListOpen] = useState(false);
@@ -21,7 +23,7 @@ const TripPage = () => {
 
       <span>Map</span>
       <span>Add </span>
-      <span>Countdown</span>
+      <CountdownTimer />
     </div>
   );
 };
