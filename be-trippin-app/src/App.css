@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  /* App style of height: 100% is for giving context to side menus */
+  height: 100%;
 }
 
 .App-logo {
