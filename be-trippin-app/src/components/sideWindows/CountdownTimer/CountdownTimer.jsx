@@ -12,14 +12,6 @@ const CountdownTimer = () => {
   const [timerStarted, setTimerStarted] = useState(false);
   const [departureDate, setDepartureDate] = useState("");
 
-  //   useEffect(() => {
-  //     const interval = setInterval(() => {
-  //       console.log("This will run every second!");
-  //       setClock();
-  //     }, 1000);
-  //     return () => clearInterval(interval);
-  //   }, []);
-
   useEffect(() => {
     if (timerStarted) {
       setTimeout(() => {
@@ -35,9 +27,6 @@ const CountdownTimer = () => {
 
   const handleDateSubmit = (event) => {
     event.preventDefault();
-    // console.log("handle date submit");
-    // console.log("input date", new Date(input));
-    // console.log("current date", new Date());
     getTimeUntil(input);
     setDepartureDate(input);
     setInput("");

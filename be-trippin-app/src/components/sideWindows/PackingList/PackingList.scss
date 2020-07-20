@@ -6,8 +6,7 @@
   height: 100vh;
   background: rgba(61, 190, 226, 0.5);
   z-index: 2; // the higher the number, the more the element will be on top of the everything
-  clip-path: ellipse(250px 500px at 30% 40%);
-  // Will need a better way to adjust for overflow of packing list items
+  clip-path: ellipse(300px 650px at 25% 50%);
   overflow-y: scroll;
 }
 
@@ -16,26 +15,31 @@
   position: absolute;
   width: 100vw;
   height: 100vh;
+  min-height: 1200px;
   max-width: 425px;
   text-align: left;
-  clip-path: ellipse(230px 600px at 30% 50%);
+  clip-path: ellipse(230px 700px at 40% 50%);
   padding: 30px;
   color: white;
   font-weight: 700;
+  overflow-y: scroll;
+  margin-bottom: 200px;
 }
 
 // This is for IPad Pro
 .packing-list p {
-  padding-top: 150px;
+  padding-top: 130px;
 }
 
 .packing-list-items {
   position: relative;
+  height: 100vh;
 }
 
 .packing-list-items li {
   padding: 5px;
 }
+
 .delete-button {
   position: absolute;
   left: 200px;
