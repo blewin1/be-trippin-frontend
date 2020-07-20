@@ -1,15 +1,31 @@
-import React from 'react'
+import React, { useState } from "react";
+import PackingList from "../../sideWindows/PackingList/PackingList";
+import SuitcaseButton from "../../sideWindows/PackingList/SuitcaseButton";
+import CountdownTimer from "../../sideWindows/CountdownTimer/CountdownTimer";
+import "./TripPage.scss";
 
 const TripPage = () => {
-    return (
-        <div className="trip-page">
-            <span>Countdown</span>
-            <span>PackingList</span>
-            <span>Map</span>
-            <span>Add </span>
-            <span>Countdown</span>
-        </div>
-    )
-}
+  const [packingListOpen, setPackingListOpen] = useState(false);
 
-export default TripPage
+  const handleSuitcaseButton = () => {
+    setPackingListOpen(!packingListOpen);
+  };
+
+  let showPackingList = null;
+  if (packingListOpen) {
+    showPackingList = <PackingList />;
+  }
+
+  return (
+    <div className="trip-page">
+      <SuitcaseButton clickHandler={handleSuitcaseButton} />
+      {showPackingList}
+
+      <span>Map</span>
+      <span>Add </span>
+      <CountdownTimer />
+    </div>
+  );
+};
+
+export default TripPage;
