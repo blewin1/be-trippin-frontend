@@ -50,22 +50,26 @@ const CountdownTimer = () => {
   };
 
   return (
-    <div className="countdown-container">
-      <p>Countdown Until Departure Date: </p>
-      <p>{departureDate}</p>
-      <div className="clock-days">{timer.days} days</div>
-      <div className="clock-hours">{timer.hours} hours</div>
-      <div className="clock-minutes">{timer.minutes} minutes</div>
-      <div className="clock-seconds">{timer.seconds} seconds</div>
-      <div className="timer-input">
-        <form onSubmit={handleDateSubmit}>
-          <input
-            placeholder="mm/dd/yy"
-            onChange={handleDateChange}
-            value={input}
-          ></input>
-          <button>Submit</button>
-        </form>
+    <div className="countdown-border">
+      <div className="countdown-container">
+        <p>Countdown Until Departure Date: </p>
+        <p>{departureDate}</p>
+        <div className="countdown-clock">
+          <span className="clock-days">{timer.days} days</span>
+          <span className="clock-hours">{timer.hours} hours</span>
+          <span className="clock-minutes">{timer.minutes} minutes</span>
+          <span className="clock-seconds">{timer.seconds} seconds</span>
+        </div>
+        <div className="timer-input">
+          <form onSubmit={handleDateSubmit}>
+            <input
+              placeholder="mm/dd/yy"
+              onChange={handleDateChange}
+              value={input}
+            ></input>
+            <button>Submit</button>
+          </form>
+        </div>
       </div>
     </div>
   );
