@@ -1,14 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PackingList from "../../sideWindows/PackingList/PackingList";
 import SuitcaseButton from "../../sideWindows/PackingList/SuitcaseButton";
 import CountdownTimer from "../../sideWindows/CountdownTimer/CountdownTimer";
 import Map from '../../gMapsComponents/Map/Map'
 import LocationSearch from "../../gMapsComponents/LocationSearch/LocationSearch";
+import axios from 'axios';
+import apiUrl from "../../../apiConfig";
 import "./TripPage.scss";
 
-const TripPage = () => {
+const TripPage = ({ match }) => {
     const [packingListOpen, setPackingListOpen] = useState(false);
     const [stops, setStops] = useState([])
+    const [trip, setTrip] = useState({})
+
+    useEffect(() => {
+        refreshTrip();
+    }, [])
+
+
+    const refreshTrip = async () => {
+        try {
+            const tripData = await axios.get(`${apiUrl}/trips/${match.params.id}`);
+            console.log('Got Trip', tripData)
+            setTrip(tripData.data.trip);
+        } catch (err) {
+            console.error('ERROR GETTING TRIPS', err);
+        }
+    }
 
     const handleSuitcaseButton = () => {
         setPackingListOpen(!packingListOpen);
