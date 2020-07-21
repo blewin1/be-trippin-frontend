@@ -55,7 +55,6 @@ const CountdownTimer = () => {
   };
 
   return (
-    // <div className="countdown-border">
     <div className="countdown-container">
       <button className="departure-button" onClick={toggleCountdownInput}>
         Set Departure: {departureDate}
@@ -78,7 +77,6 @@ const CountdownTimer = () => {
         </form>
       </div>
     </div>
-    // </div>
   );
 };
 
