@@ -1,5 +1,11 @@
+@import "../../../_config.scss";
+
 .packing-list-border {
-  position: fixed;
+  // position: fixed;
+  position: absolute;
+  margin-top: 50px;
+  top: 0;
+
   width: 100vw;
   max-width: 500px;
   min-width: 500px;
@@ -7,16 +13,16 @@
   background-color: rgba(61, 190, 226, 0.5);
   z-index: 2; // the higher the number, the more the element will be on top of the everything
   clip-path: ellipse(300px 650px at 25% 50%);
-  overflow-y: scroll;
+  // overflow-y: scroll;
 }
 
 .packing-list {
-  background-color: #ffa800;
+  // background-color: #ffa800;
+  background-color: $button-color;
   position: absolute;
   width: 100vw;
   height: 100vh;
-  // min-height: auto;
-  // max-height: auto;
+
   max-width: 425px;
   text-align: left;
   // clip-path: ellipse(230px 800px at 40% 50%);
@@ -25,13 +31,13 @@
   padding: 30px;
   color: white;
   font-weight: 700;
-  // overflow-y: scroll;
+  overflow-y: scroll;
   margin-bottom: 200px;
 }
 
 // This is for IPad Pro
 .packing-list p {
-  padding-top: 130px;
+  padding-top: 100px;
 }
 
 .packing-list-items {
@@ -45,7 +51,7 @@
 
 .delete-button {
   position: absolute;
-  left: 200px;
+  left: 150px;
   background-color: #3dbee2;
   color: white;
 }
