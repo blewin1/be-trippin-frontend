@@ -4,7 +4,7 @@ import {
     withGoogleMap,
     GoogleMap,
     Marker,
-    DirectionsRenderer
+    DirectionsRenderer,
 } from "react-google-maps";
 
 
