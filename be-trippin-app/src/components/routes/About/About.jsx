@@ -3,11 +3,13 @@ import "../About/about.scss";
 const About = () => {
   return (
     <div className="awrap">
-      <body>
-        <div id="bg"></div>
+      
+    <div id="bg"></div>
         <div className="logo">
-          <h1>BeTrippin</h1>
-        </div>
+        
+          {/* <h1>BeTrippin</h1> */}
+          <img src="https://res.cloudinary.com/twin2052000/image/upload/v1595270820/car_fast_hvh4xr.png"></img>
+          </div>
         <section className="first">
           <p>
             BeTrippin is a new and improve roadtrip planner that will put all of
@@ -38,35 +40,8 @@ const About = () => {
             life!
           </p>
         </section>
-        {/* <div className="container line1">
-               
-                    <div className="col-6 justify-content ">
-                        <div class="card ">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                <p class="card-text"></p>
-                             </div>
-                        </div>
-                    </div>
-                
-                <div class="row">
-                    <div className="col-7">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                <p class="card-text"></p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div className="col-5 justify-content "> */}
-
-        {/* </div>
-            </div> */}
-      </body>
+        
+      
     </div>
   );
 };

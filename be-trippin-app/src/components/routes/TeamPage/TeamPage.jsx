@@ -2,70 +2,56 @@ import React from 'react'
 import '../TeamPage/teamPage.scss'
 const TeamPage = () => {
     return (
-        <div className="team-page">
-            <span>Meet The Team</span>
-            <div class="accordion" id="accordionExample">
-  <div class="card col-7 Nat">
-    <div class="card-header" id="headingOne">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Natasha Sana
-        </button>
-      </h2>
-    </div>
-
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="card col-7">
-    <div class="card-header" id="headingTwo">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Antwain
-        </button>
-      </h2>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="card col-7">
-    <div class="card-header" id="headingThree">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Ben Lewin
-        </button>
-      </h2>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body">
-          <img src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg"></img>
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="card col-7">
-    <div class="card-header" id="headingThree">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Zhijie (Jenny) Xu
-        </button>
-      </h2>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body">
-          <img src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg"></img>
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-</div>
+      <div className="all">
+        <span className="meet">Meet The Team</span>
+        <div className="nat">
+          <div className="inner">
+            <h4>Natasha Sana</h4>
+            <span className="resume">
+              I am a junior software developer with a background in quality 
+              assurance and the beverage industry. My experience in creating 
+              quality-driven products fused with my passion for continuous professional
+              development has led me to becoming a developer. In honing my craft to build 
+              efficient and concise software, my goal is to create service-oriented applications
+              that are fun, stylish, and easy to navigate for computer users of all levels. Beyond coding,
+              I enjoy playing the uke, beer-brewing, cooking an [array] of dishes, and listening to my hubby’s 
+              vinyl collection.  </span>
+          </div>
+        </div><div className="antwain">
+          <div className="inner">
+            <h4>Antwain Hart</h4>
+            <span className="resume">Im a software developer who specializes
+               in web design, front-end development as well as user experiences.
+                My tenure in the entertainment field working with a number of different 
+                companies in multiple industries has fortified my skills in curating their
+                 visual ideas and concepts into a way that consumers can find relatable and 
+                 digest. In the future I plan to continue to be the link between fresh new 
+                 ideas and innovative solutions. </span>
+          </div>
+        </div><div className="jen">
+          <div className="inner">
+            <h4>Zhijie (Jenny) Xu</h4>
+            <span className="resume">Im a software developer who specializes
+               in web design, front-end development as well as user experiences.
+                My tenure in the entertainment field working with a number of different 
+                companies in multiple industries has fortified my skills in curating their
+                 visual ideas and concepts into a way that consumers can find relatable and 
+                 digest. In the future I plan to continue to be the link between fresh new 
+                 ideas and innovative solutions. </span>
+          </div>
+        </div><div className="ben">
+          <div className="inner">
+            <h4>Ben Lewin</h4>
+            <span className="resume">Im a software developer who specializes
+               in web design, front-end development as well as user experiences.
+                My tenure in the entertainment field working with a number of different 
+                companies in multiple industries has fortified my skills in curating their
+                 visual ideas and concepts into a way that consumers can find relatable and 
+                 digest. In the future I plan to continue to be the link between fresh new 
+                 ideas and innovative solutions. </span>
+          </div>
         </div>
+    </div>
     )
 }
 
