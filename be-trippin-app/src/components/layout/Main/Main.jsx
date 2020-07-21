@@ -16,7 +16,7 @@ const Main = () => {
         <Route path="*" render={() => <Redirect to="/" />} />
       </Switch>
       {/* TripPage rendered for testing only */}
-      <TripPage />
+      {/* <TripPage /> */}
     </main>
   );
 };
