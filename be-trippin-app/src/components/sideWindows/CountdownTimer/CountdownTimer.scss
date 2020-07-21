@@ -1,7 +1,19 @@
+.countdown-container {
+  text-align: center;
+  padding: 30px;
+  background-color: #ffa800;
+  margin-left: 50vw;
+  border-radius: 200px;
+}
+
 .clock-days,
 .clock-hours,
 .clock-minutes,
 .clock-seconds {
   display: inline;
   margin: 5px;
+}
+
+.timer-input form {
+  padding: 20px;
 }

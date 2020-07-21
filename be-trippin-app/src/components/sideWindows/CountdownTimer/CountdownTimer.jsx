@@ -50,7 +50,7 @@ const CountdownTimer = () => {
   };
 
   return (
-    <div className="timer">
+    <div className="countdown-container">
       <p>Countdown Until Departure Date: </p>
       <p>{departureDate}</p>
       <div className="clock-days">{timer.days} days</div>
