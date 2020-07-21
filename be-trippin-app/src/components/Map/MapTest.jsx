@@ -1,25 +1,32 @@
 /* global google */
 import React, { useEffect, useState } from 'react'
 import {
-    withScriptjs,
     withGoogleMap,
     GoogleMap,
     Marker,
-    DirectionsRenderer,
-    directionsService
+    DirectionsRenderer
 } from "react-google-maps";
 
-function MyDirectionsRenderer(props) {
+
+const MapWithAMarker = withGoogleMap(({ stops }) => {
     const [directions, setDirections] = useState(null);
-    const { origin, destination, travelMode } = props;
 
     useEffect(() => {
+        if (stops.length < 2) return;
+        console.log('setting up directions')
+        const waypoints = stops.map(el => {
+            return { location: { lat: el.lat, lng: el.lng } }
+        })
+        const origin = waypoints.shift();
+        const destination = waypoints.pop();
+
         const directionsService = new google.maps.DirectionsService();
         directionsService.route(
             {
-                origin: new google.maps.LatLng(origin.lat, origin.lng),
-                destination: new google.maps.LatLng(destination.lat, destination.lng),
-                travelMode: travelMode
+                origin: origin,
+                destination: destination,
+                waypoints: waypoints,
+                travelMode: google.maps.TravelMode.DRIVING
             },
             (result, status) => {
                 if (status === google.maps.DirectionsStatus.OK) {
@@ -29,34 +36,18 @@ function MyDirectionsRenderer(props) {
                 }
             }
         );
-    }, [directions]);
-
-    return (
-        <React.Fragment>
-            {directions && <DirectionsRenderer directions={directions} />}
-        </React.Fragment>
-    );
-}
-
-const MapWithAMarker = withGoogleMap(props => {
-
+    }, [stops]);
 
     return (
         <GoogleMap
             defaultZoom={3}
             defaultCenter={{ lat: 42, lng: -97 }}
         >
-            {props.stops.map((el, i) => <Marker key={i} position={el} />)}
-            {/* <Marker position={props.stop} /> */}
-            {props.stops.length >= 2 ?
-                <MyDirectionsRenderer
-                    origin={props.stops[0]}
-                    destination={props.stops[props.stops.length - 1]}
-                    travelMode={google.maps.TravelMode.DRIVING}
-                />
+            <Marker position={stops[0]} />
+            {stops.length >= 2 ?
+                directions && <DirectionsRenderer directions={directions} />
                 : ''
             }
-
         </GoogleMap>
     )
 }
