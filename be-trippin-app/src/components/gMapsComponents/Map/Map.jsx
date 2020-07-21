@@ -8,7 +8,7 @@ import {
 } from "react-google-maps";
 
 
-const MapWithAMarker = withGoogleMap(({ stops }) => {
+const Map = withGoogleMap(({ stops }) => {
     const [directions, setDirections] = useState(null);
 
     useEffect(() => {
@@ -54,4 +54,4 @@ const MapWithAMarker = withGoogleMap(({ stops }) => {
 );
 
 
-export default MapWithAMarker;
+export default Map;
