@@ -11,6 +11,7 @@ const CountdownTimer = () => {
   });
   const [timerStarted, setTimerStarted] = useState(false);
   const [departureDate, setDepartureDate] = useState("");
+  const [showCountdownInput, setShowCountdownInput] = useState(false);
 
   useEffect(() => {
     if (timerStarted) {
@@ -49,27 +50,31 @@ const CountdownTimer = () => {
     });
   };
 
+  const toggleCountdownInput = () => {
+    setShowCountdownInput(!showCountdownInput);
+  };
+
   return (
-    <div className="countdown-border">
-      <div className="countdown-container">
-        <p>Countdown Until Departure Date: </p>
-        <p>{departureDate}</p>
-        <div className="countdown-clock">
-          <span className="clock-days">{timer.days} days</span>
-          <span className="clock-hours">{timer.hours} hours</span>
-          <span className="clock-minutes">{timer.minutes} minutes</span>
-          <span className="clock-seconds">{timer.seconds} seconds</span>
-        </div>
-        <div className="timer-input">
-          <form onSubmit={handleDateSubmit}>
-            <input
-              placeholder="mm/dd/yy"
-              onChange={handleDateChange}
-              value={input}
-            ></input>
-            <button>Submit</button>
-          </form>
-        </div>
+    <div className="countdown-container">
+      <button className="departure-button" onClick={toggleCountdownInput}>
+        Set Departure: {departureDate}
+      </button>
+
+      <div className="countdown-clock">
+        <span className="clock-days">{timer.days} days</span>
+        <span className="clock-hours">{timer.hours} hours</span>
+        <span className="clock-minutes">{timer.minutes} minutes</span>
+        <span className="clock-seconds">{timer.seconds} seconds</span>
+      </div>
+      <div className={`timer-input ${showCountdownInput ? "visible" : ""}`}>
+        <form onSubmit={handleDateSubmit}>
+          <input
+            placeholder="mm/dd/yy"
+            onChange={handleDateChange}
+            value={input}
+          ></input>
+          <button>Submit</button>
+        </form>
       </div>
     </div>
   );
