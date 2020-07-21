@@ -34,6 +34,21 @@ const CountdownTimer = () => {
     setTimerStarted(true);
   };
   console.log("clock time: ", timer);
+  console.log("departure date: ", departureDate)
+
+
+// get current trip by id
+// save current trip into state
+// update put 
+
+  const createDepartureDate = async (date) => {
+    try {
+    await axios.put(`http://localhost:4000/trip/:id`, date )
+    } catch (err){
+    console.error(err);
+    }
+  }
+
 
   const getTimeUntil = (inputTime) => {
     const time = Date.parse(inputTime) - Date.parse(new Date());
