@@ -15,8 +15,6 @@ const Main = () => {
         <Route path="/trip/:id" component={TripPage} />
         <Route path="*" render={() => <Redirect to="/" />} />
       </Switch>
-      {/* TripPage rendered for testing only */}
-      <TripPage />
     </main>
   );
 };
