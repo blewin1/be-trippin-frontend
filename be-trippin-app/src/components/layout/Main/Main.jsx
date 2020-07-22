@@ -4,8 +4,10 @@ import Home from "../../routes/Home/Home";
 import TeamPage from "../../routes/TeamPage/TeamPage";
 import About from "../../routes/About/About";
 import TripPage from "../../routes/TripPage/TripPage";
+import "./main.scss"
 
 const Main = () => {
+
   return (
     <main>
       <Switch>
