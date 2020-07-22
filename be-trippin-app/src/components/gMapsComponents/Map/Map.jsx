@@ -13,7 +13,7 @@ const Map = withGoogleMap(({ stops }) => {
 
     useEffect(() => {
         if (stops.length < 2) return;
-        console.log('setting up directions')
+
         const waypoints = stops.map(el => {
             return { location: { lat: el.lat, lng: el.lng } }
         })
@@ -42,6 +42,7 @@ const Map = withGoogleMap(({ stops }) => {
         <GoogleMap
             defaultZoom={3}
             defaultCenter={{ lat: 42, lng: -97 }}
+            options={{ disableDefaultUI: true }}
         >
             <Marker position={stops[0]} />
             {stops.length >= 2 ?
