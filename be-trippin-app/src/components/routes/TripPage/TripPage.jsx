@@ -71,9 +71,7 @@ const TripPage = ({ match }) => {
     const addStop = async (stop) => {
         try {
             const index = getBestStopIndex(stop)
-            console.log('index', index)
             const tripData = await axios.put(`${apiUrl}/trips/${match.params.id}/addStop/${index}`, stop);
-            console.log('Got Trip', tripData)
             setTrip(tripData.data.trip);
         } catch (err) {
             console.error('ERROR GETTING TRIPS', err);

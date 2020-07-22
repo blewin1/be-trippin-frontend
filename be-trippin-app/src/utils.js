@@ -4,7 +4,6 @@ export function haversineDistance(
   { lat: lat1, lng: lng1 },
   { lat: lat2, lng: lng2 }
 ) {
-  //   console.log(lat1);
   var R = 3958.8; // Radius of the Earth in miles
   var rlat1 = lat1 * (Math.PI / 180); // Convert degrees to radians
   var rlat2 = lat2 * (Math.PI / 180); // Convert degrees to radians
@@ -23,6 +22,5 @@ export function haversineDistance(
             Math.sin(difflon / 2)
       )
     );
-  console.log(d);
   return d;
 }

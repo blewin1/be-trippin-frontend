@@ -13,7 +13,7 @@ const Map = withGoogleMap(({ stops }) => {
 
     useEffect(() => {
         if (stops.length < 2) return;
-        console.log('setting up directions')
+
         const waypoints = stops.map(el => {
             return { location: { lat: el.lat, lng: el.lng } }
         })

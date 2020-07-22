@@ -19,14 +19,12 @@ const LocationSearch = ({ addStop, numStops }) => {
 
     const setStop = async address => {
         try {
-            console.log(address.structured_formatting.main_text)
             const a = await geocodeByPlaceId(address.place_id);
             const latlng = await getLatLng(a[0])
             const stop = {
                 ...latlng,
                 name: address.structured_formatting.main_text
             }
-            console.log(stop)
             addStop(stop)
         } catch (err) {
             console.log('Failed to set Location', err)

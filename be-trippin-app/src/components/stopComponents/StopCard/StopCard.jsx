@@ -9,7 +9,6 @@ const StopCard = ({ stop, setTrip, tripId }) => {
     const removeStop = async () => {
         try {
             const tripData = await axios.delete(`${apiUrl}/trips/${tripId}/removeStop/${stop._id}`);
-            console.log('Got Trip', tripData)
             setTrip(tripData.data.trip);
         } catch (err) {
             console.error('ERROR GETTING TRIPS', err);
