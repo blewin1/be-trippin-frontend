@@ -32,8 +32,15 @@ const TripPage = ({ match }) => {
         setPackingListOpen(!packingListOpen);
     };
 
-    const addStop = (latlng) => {
-        setStops([...stops, latlng])
+    const addStop = async (stop) => {
+        try {
+            const tripData = await axios.put(`${apiUrl}/trips/${match.params.id}/addStop/-1`, stop);
+            console.log('Got Trip', tripData)
+            setTrip(tripData.data.trip);
+        } catch (err) {
+            console.error('ERROR GETTING TRIPS', err);
+        }
+        setStops([...stops, stop])
     }
 
     let showPackingList = null;
@@ -46,12 +53,16 @@ const TripPage = ({ match }) => {
             <SuitcaseButton suitcaseClickHandler={handleSuitcaseButton} />
             {showPackingList}
             <LocationSearch addStop={addStop} />
-            <Map
-                loadingElement={<div style={{ height: `100%` }} />}
-                containerElement={<div style={{ height: `500px` }} />}
-                mapElement={<div style={{ height: `100%` }} />}
-                stops={stops}
-            />
+            {trip.stops ?
+                <Map
+                    loadingElement={<div style={{ height: `100%` }} />}
+                    containerElement={<div style={{ height: `500px` }} />}
+                    mapElement={<div style={{ height: `100%` }} />}
+                    // stops={stops}
+                    stops={trip.stops}
+                />
+                : <h2>Loading Map...</h2>
+            }
             <span>Add </span>
             <CountdownTimer />
         </div>
