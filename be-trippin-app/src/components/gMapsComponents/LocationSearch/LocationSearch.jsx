@@ -3,7 +3,20 @@ import GooglePlacesAutocomplete, { geocodeByPlaceId, getLatLng } from 'react-goo
 import 'react-google-places-autocomplete/dist/index.min.css';
 import "./LocationSearch.scss";
 
-const LocationSearch = ({ addStop }) => {
+const LocationSearch = ({ addStop, numStops }) => {
+
+    let placeholder = 'Add a Stop';
+    switch (numStops) {
+        case 0:
+            placeholder = 'Add a Starting Location'
+            break;
+        case 1:
+            placeholder = 'Add your Destination'
+            break;
+        default:
+            break;
+    }
+
     const setStop = async address => {
         try {
             console.log(address.structured_formatting.main_text)
@@ -23,7 +36,7 @@ const LocationSearch = ({ addStop }) => {
         <div className="google-map-form">
             <GooglePlacesAutocomplete
                 onSelect={setStop}
-                placeholder="Add a Stop"
+                placeholder={placeholder}
                 displayFromSuggestionSelected={() => ''}
             />
         </div>
