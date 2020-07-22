@@ -42,6 +42,7 @@ const Map = withGoogleMap(({ stops }) => {
         <GoogleMap
             defaultZoom={3}
             defaultCenter={{ lat: 42, lng: -97 }}
+            options={{ disableDefaultUI: true }}
         >
             <Marker position={stops[0]} />
             {stops.length >= 2 ?
