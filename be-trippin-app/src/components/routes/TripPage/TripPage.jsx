@@ -64,7 +64,7 @@ const TripPage = ({ match }) => {
                 : <h2>Loading Map...</h2>
             }
             <span>Add </span>
-            <CountdownTimer />
+            <CountdownTimer match={match}/>
         </div>
     );
 };
