@@ -53,7 +53,7 @@ const TripPage = ({ match }) => {
                 stops={stops}
             />
             <span>Add </span>
-            <CountdownTimer />
+            <CountdownTimer match={match}/>
         </div>
     );
 };

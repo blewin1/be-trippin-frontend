@@ -1,7 +1,7 @@
 import React from 'react'
 import GooglePlacesAutocomplete, { geocodeByPlaceId, getLatLng } from 'react-google-places-autocomplete'
 import 'react-google-places-autocomplete/dist/index.min.css';
-
+import "./LocationSearch.scss";
 
 const LocationSearch = ({ addStop }) => {
     const setStop = async address => {
@@ -16,7 +16,7 @@ const LocationSearch = ({ addStop }) => {
         }
     }
     return (
-        <div>
+        <div className="google-map-form">
             <GooglePlacesAutocomplete
                 onSelect={setStop}
                 placeholder="Add a Stop"
