@@ -12,7 +12,7 @@ const CountdownTimer = ({ match }) => {
     seconds: 0,
   });
   const [timerStarted, setTimerStarted] = useState(false);
-    const [departureDate, setDepartureDate] = useState("");
+  const [departureDate, setDepartureDate] = useState("");
   const [showCountdownInput, setShowCountdownInput] = useState(false);
 
 
@@ -28,22 +28,21 @@ const CountdownTimer = ({ match }) => {
     setInput(event.target.value);
   };
 
-  const handleDateSubmit =  (event) => {
+  const handleDateSubmit = (event) => {
     event.preventDefault();
     addDeparture(input);
     getTimeUntil(input);
     setDepartureDate(input);
     setInput("");
     setTimerStarted(true);
-    console.log("countdown match", match)
-    
+    // console.log("countdown match", match)
    };
 
 
 
   const addDeparture = async (date) => {
     date = new Date(date)
-    console.log("date: ", date)
+    // console.log("date: ", date)
   try{
   const response = await axios.put(`${apiUrl}/trips/${match.params.id}/departureDate/${date}`);
       console.log("added departure date successfully", response.data.departureDate)
