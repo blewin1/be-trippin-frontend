@@ -1,7 +1,9 @@
-@import 'src/_config.scss';
+@import "src/_config.scss";
 
 footer {
-    color: $example-color;
-    position: fixed;
-    bottom: 0;
+  color: $example-color;
+  border: 1px solid red;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
