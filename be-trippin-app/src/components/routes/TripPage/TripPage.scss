@@ -7,22 +7,6 @@
   }
 }
 
-.stop-card {
-}
-
-.remove {
-  cursor: pointer;
-  background-color: lightgrey;
-  padding: 10px;
-  border-radius: 15px;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
-  font-weight: 700;
-}
-
-.remove:hover {
-  background-color: rgba(74, 218, 253, 0.6);
-}
-
 @media only screen and (min-width: 768px) {
   .trip-page {
     display: grid;
