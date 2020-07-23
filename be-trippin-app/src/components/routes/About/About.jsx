@@ -6,9 +6,9 @@ const About = () => {
       
     <div id="bg"></div>
         <div className="logo">
-        
+        <h1 className="be">BeTrippin</h1>
           {/* <h1>BeTrippin</h1> */}
-          <img src="https://res.cloudinary.com/twin2052000/image/upload/v1595270820/car_fast_hvh4xr.png"></img>
+          {/* <img src="https://res.cloudinary.com/twin2052000/image/upload/v1595270820/car_fast_hvh4xr.png"></img> */}
           </div>
         <section className="first">
           <p>

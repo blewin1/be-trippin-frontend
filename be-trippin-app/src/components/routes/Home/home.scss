@@ -3,23 +3,185 @@
 
 
 html{
-    background-color: $bg-color;
+    // background-color: #fac000;
+    background-color: #17749B;
 }
 
 
+.homepage {
+    background: #17749B;
+    // background-size: 1500vh;
+    // background-position: 0;
+    // width: 100%;
+    min-height: 1500px;
+    
+    
+}
 
- .homepage {
-    background-image: url("https://res.cloudinary.com/twin2052000/image/upload/v1595270799/car_fast_kskclu.jpg");
+.par{
+
+  position: relative;
+  width: 100vw;
+  height: 50vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+
+}
+
+.par:before {
+
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  width: 100%;
+  height: 40%;
+  // background: linear-gradient(to top, #fac000, transparent);
+  background: linear-gradient(to top, #17749B, transparent);
+  z-index: 10000;
+  
+}
+
+.par:after {
+
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  // background: #fac000;
+  background: #17749B;
+  // background: #0a2a43;
+  z-index: 10000;
+  mix-blend-mode: color;
+  
+}
+
+.par img {
+  position: absolute;
+  // top: 5;
+  // left: 5;
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  pointer-events: none;
+  
+
+}
+
+.text {
+    font-family: "cormorant garamond";
+    position: relative;
+    color: #fff;
+    font-size: 40px;
+    z-index: 1;
+
+}
+
+
+// .mountain {
+//   transform: translateY(1.9999px);
+// }
+
+
+
+
+
+
+
+
+// .lcontainer {
+// // background-image: url("https://res.cloudinary.com/twin2052000/image/upload/v1595270799/car_fast_kskclu.jpg");
+// height: 50%;
+// width: 50%;
+
+// }
+
+// img {
+//     border-radius: 20px;
+//     border-color: rgb(23,116,154);
+// }
+
+@media (min-width: 786px) {
+
+  .homepage {
+    background: #17749B;
+    // background: #fac000;
+    // background: #0a2a43;
+    min-height: 1500px;
+  }
+
+  .par{
+
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .par:before {
+
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    width: 100%;
+    height: 100px;
+    // background: linear-gradient(to top, #fac000, transparent);
+    background: linear-gradient(to top, #17749B, transparent);
+    z-index: 10000;
+  }
+
+  .par:after {
+
+    content: '';
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    // background: #fac000;
+    background: #17749B;
+    // background: #0a2a43;
+    z-index: 10000;
+    mix-blend-mode: color;
+  }
+
+  .par img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+
+  }
+
+  .text {
+      font-family: "cormorant garamond";
+      position: relative;
+      color: #fff;
+      font-size: 10em;
+      z-index: 1;
+
+  }
 
  
-    
-    // &::before {
-    //     background-image: url("https://res.cloudinary.com/twin2052000/image/upload/v1595270799/car_fast_kskclu.jpg");
-    //     width: 100%;
-    //     height: 170%;
-    //     position: absolute;
-    //     z-index: -1;
 
-    // }
-    
+
 }
+
+
+
+
+
+
