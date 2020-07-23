@@ -1,5 +1,6 @@
-@import 'src/_config.scss';
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap');
+@import "src/_config.scss";
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap");
+
 
 
 html{
@@ -117,10 +118,24 @@ html{
 @media (min-width: 786px) {
 
   .homepage {
-    background: #17749B;
+      background: #17749B;
     // background: #fac000;
     // background: #0a2a43;
-    min-height: 1500px;
+      min-height: 1500px;
+      
+  }
+
+  .mainhomepage {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row: auto;
+  }
+
+  .left {
+    grid-column: 1/2;
+  }
+  .right {
+    grid-column: 2/3;
   }
 
   .par{
@@ -187,6 +202,7 @@ html{
 
 
 }
+
 
 
 

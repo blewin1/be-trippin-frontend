@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ListForm.scss";
 
-const ListForm = ({ handlePackListSubmit, placeholder }) => {
+const ListForm = ({ handleSubmit, placeholder }) => {
   const [input, setInput] = useState("");
 
   const handleChange = (event) => {
@@ -9,14 +9,14 @@ const ListForm = ({ handlePackListSubmit, placeholder }) => {
     setInput(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const submitForm = (event) => {
     event.preventDefault();
-    handlePackListSubmit(input);
+    handleSubmit(input);
     setInput("");
   };
 
   return (
-    <form className="list-form" onSubmit={handleSubmit}>
+    <form className="list-form" onSubmit={submitForm}>
       <label htmlFor="list"></label>
       <input
         name="list"
