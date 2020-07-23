@@ -7,14 +7,10 @@ const Home = ({ history }) => {
 
   return (
     <div className="homepage">
-
-
       <span>Logo</span>
       <AddTrip history={history} />
       <TripList history={history} />
     </div>
-
-
   );
 };
 
