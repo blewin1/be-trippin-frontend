@@ -60,7 +60,7 @@ const PackingList = ({ match, packingListData, setTrip }) => {
         <p>Add your packing list items:</p>
         <ListForm
           placeholder={"Add an item"}
-          handlePackListSubmit={handleSubmit}
+          handleSubmit={handleSubmit}
         />
         <ol className="packing-list-items">{displayList}</ol>
       </div>

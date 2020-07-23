@@ -18,8 +18,10 @@
 
   .things-to-do {
     grid-area: to-do;
-    display: flex;
-    flex-direction: column;
+    ul {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   .remove-stop {
@@ -54,4 +56,18 @@
   }
 }
 .list-item {
+  padding: 5px;
+}
+.remove-item {
+  cursor: pointer;
+  background-color: lightgrey;
+  padding: 5px;
+  margin-left: 5px;
+  border-radius: 15px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+
+  &:hover {
+    background-color: rgba(74, 218, 253, 0.6);
+  }
 }
