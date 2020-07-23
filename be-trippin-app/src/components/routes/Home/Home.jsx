@@ -1,17 +1,20 @@
 import React from "react";
 import "../Home/home.scss";
+import AddTrip from "../../homepageComponents/AddTrip/AddTrip";
+import TripList from "../../homepageComponents/TripList/TripList";
 
-const Home = () => {
+const Home = ({ history }) => {
+
   return (
     <div className="homepage">
-      
-      
+
+
       <span>Logo</span>
-      <span>Create Trip (link)</span>
-      <span>TripsList (links)</span>
-      </div>
-      
-    
+      <AddTrip history={history} />
+      <TripList history={history} />
+    </div>
+
+
   );
 };
 
