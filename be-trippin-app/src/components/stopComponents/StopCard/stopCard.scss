@@ -3,16 +3,52 @@
 .stop-card {
   background-color: $textBox-color;
   border-radius: 15px;
-  //   text-shadow: 0 0 15px rgb(0, 0, 0);
   padding: 1em;
-  // padding: 15px;
   margin: 1em auto;
   box-shadow: 0 30px 50px rgba(0, 0, 0, 0.8);
-  // box-shadow: 0 10px 30px rgba(0,0,0,.2);
   width: 80%;
-  ul {
+
+  display: grid;
+  grid-template-columns: min-content 1fr min-content;
+  grid-template-rows: min-content 1fr min-content;
+  grid-template-areas:
+    "remove title reorder-up"
+    "   .   to-do     .     "
+    "   .   to-do reorder-down";
+
+  .things-to-do {
+    grid-area: to-do;
     display: flex;
     flex-direction: column;
+  }
+
+  .remove-stop {
+    grid-area: remove;
+  }
+
+  .stop-name {
+    grid-area: title;
+  }
+  .reorder-up {
+    grid-area: reorder-up;
+  }
+  .reorder-down {
+    grid-area: reorder-down;
+  }
+
+  .remove-stop,
+  .reorder-up,
+  .reorder-down {
+    cursor: pointer;
+    background-color: lightgrey;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+
+    &:hover {
+      background-color: rgba(74, 218, 253, 0.6);
+    }
   }
 }
 .list-item {

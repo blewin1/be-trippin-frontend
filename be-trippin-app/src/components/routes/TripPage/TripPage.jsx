@@ -87,7 +87,7 @@ const TripPage = ({ match }) => {
     const updateTitle = async title => {
         try {
             const tripData = await axios.put(`${apiUrl}/trips/${match.params.id}/`, { name: title });
-            refreshTrip()
+            setTrip(tripData.data)
         } catch (err) {
             console.error('ERROR UPDATING TITLE', err);
         }
