@@ -25,7 +25,7 @@ const TripList = ({ history, trips, getTrips }) => {
           <span>{el.name}</span>
           {el.stops[0] ? <span>{el.stops[el.stops.length - 1].name}</span> : ""}
         </div>
-        <button onClick={(e) => deleteTrip(e, el._id)}>X</button>
+        <button onClick={(e) => deleteTrip(e, el._id)}>&times;</button>
       </div>
     );
   });
