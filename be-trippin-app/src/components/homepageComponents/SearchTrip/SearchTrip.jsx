@@ -4,7 +4,9 @@ import "./searchTrip.scss";
 const SearchTrip = ({ trips, setFilteredTrips }) => {
   const handleChange = (event) => {
     setFilteredTrips(
-      trips.filter((trip) => trip.name.includes(event.target.value))
+      trips.filter((trip) =>
+        trip.name.toLowerCase().includes(event.target.value.toLowerCase())
+      )
     );
   };
 
@@ -12,6 +14,7 @@ const SearchTrip = ({ trips, setFilteredTrips }) => {
     event.preventDefault();
     try {
       event.target.searchbar.value = "";
+      setFilteredTrips(trips);
     } catch (err) {
       console.error("Error Searching Trip:", err);
     }
@@ -26,7 +29,7 @@ const SearchTrip = ({ trips, setFilteredTrips }) => {
         onChange={handleChange}
         className="searchbar"
       />
-      <input type="submit" value="&times;" className="clearbutton"/>
+      <input type="submit" value="&times;" className="clearbutton" />
     </form>
   );
 };
