@@ -4,7 +4,7 @@ import './stopList.scss'
 import axios from 'axios'
 import apiUrl from '../../../apiConfig'
 
-const StopList = ({ trip, setTrip }) => {
+const StopList = ({ trip, setTrip, refreshTrip }) => {
 
     const reorder = async (i, direction) => {
         const stops = trip.stops.map(el => el._id)
@@ -31,6 +31,7 @@ const StopList = ({ trip, setTrip }) => {
                 <StopCard stop={stop}
                     tripId={trip._id}
                     setTrip={setTrip}
+                    refreshTrip={refreshTrip}
                     reorder={(direction) => reorder(i, direction)}
                     first={i === 0}
                     last={i === trip.stops.length - 1}

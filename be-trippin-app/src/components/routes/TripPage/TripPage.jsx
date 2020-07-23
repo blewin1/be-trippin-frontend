@@ -13,7 +13,6 @@ import EditableText from "../../shared/EditableText/EditableText";
 
 const TripPage = ({ match }) => {
     const [packingListOpen, setPackingListOpen] = useState(false);
-    const [stops, setStops] = useState([]);
     const [trip, setTrip] = useState({});
 
     // const [departureDateBackend, setDepartureDate] = useState("");
@@ -27,7 +26,6 @@ const TripPage = ({ match }) => {
             const tripData = await axios.get(`${apiUrl}/trips/${match.params.id}`);
             console.log("Got Trip", tripData);
             setTrip(tripData.data.trip);
-            // setDepartureDate(tripData.data.trip.departureDate);
         } catch (err) {
             console.error("ERROR GETTING TRIPS", err);
         }
@@ -120,14 +118,13 @@ const TripPage = ({ match }) => {
                         loadingElement={<div style={{ height: `100%` }} />}
                         containerElement={<div style={{ height: `500px` }} />}
                         mapElement={<div style={{ height: `100%` }} />}
-                        // stops={stops}
                         stops={trip.stops}
                     />
                 </>
             ) : (
                     <h2>Loading Map...</h2>
                 )}
-            {trip.stops ? <StopList trip={trip} setTrip={setTrip} /> : ""}
+            {trip.stops ? <StopList trip={trip} setTrip={setTrip} refreshTrip={refreshTrip} /> : ""}
             <CountdownTimer
                 match={match}
                 departureDateBackend={trip.departureDate}
