@@ -12,18 +12,8 @@ const CountdownTimer = ({ match, departureDateBackend, setTrip }) => {
     minutes: 0,
     seconds: 0,
   });
-  // const [timerStarted, setTimerStarted] = useState(false);
   const [departureDate, setDepartureDate] = useState("");
   const [showCountdownInput, setShowCountdownInput] = useState(false);
-  const [timerDone, setTimerDone] = useState(false);
-
-  // useEffect(() => {
-  //   if (timer) {
-  //     setTimeout(() => {
-  //       getTimeUntil(departureDateBackend);
-  //     }, 1000);
-  //   }
-  // }, [timer]);
 
   useEffect(() => {
     if (timer) {
@@ -31,29 +21,11 @@ const CountdownTimer = ({ match, departureDateBackend, setTrip }) => {
         getTimeUntil(departureDateBackend);
       }, 1000);
     }
-    // else {
-    //   setTimerDone(true);
-    // }
   }, [timer]);
 
   const handleDateChange = (event) => {
     setInput(event.target.value);
   };
-
-  // const handleDateSubmit = (event) => {
-  //   event.preventDefault();
-  //   // user input is sent to backend
-  //   addDeparture(input);
-  //   // user input is parsed into timer
-  //   getTimeUntil(input);
-  //   // getTimeUntil(departureDateBackend);
-  //   // this allows me to clear the input field after clicking submit
-  //   setDepartureDate(input);
-  //   // setDepartureDate(departureDateBackend);
-  //   setInput("");
-  //   // this tells useEfect to start re-rendering when the timer starts and needs to update every second
-  //   setTimerStarted(true);
-  // };
 
   const handleDateSubmit = (event) => {
     event.preventDefault();
