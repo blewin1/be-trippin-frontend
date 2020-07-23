@@ -32,10 +32,22 @@ const Home = ({ history }) => {
 
   return (
     <div className="homepage">
-      <span>Logo</span>
-      <AddTrip history={history} />
-      <SearchTrip trips={trips} setFilteredTrips={setFilteredTrips} />
-      <TripList history={history} trips={filteredTrips} getTrips={getTrips} />
+      <div className="left">
+        <AddTrip className="addtrip" history={history} />
+        <SearchTrip
+          className="searchtrip"
+          trips={trips}
+          setFilteredTrips={setFilteredTrips}
+        />
+      </div>
+      <div className="right">
+        <TripList
+          className="triplist"
+          history={history}
+          trips={filteredTrips}
+          getTrips={getTrips}
+        />
+      </div>
     </div>
   );
 };
