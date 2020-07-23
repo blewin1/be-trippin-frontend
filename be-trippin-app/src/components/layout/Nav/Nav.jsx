@@ -9,7 +9,7 @@ const Nav = () => {
   };
   return (
     <div className="topnav">
-      <div className="hamlogo">
+      <div className="hamandlogo">
         <div
           className={`hamburger ${active ? "change" : ""}`}
           onClick={handleClick}
@@ -18,7 +18,7 @@ const Nav = () => {
           <div className="bar2"></div>
           <div className="bar3"></div>
         </div>
-        <NavLink to="/" className="logopic" onClick={() => setActive(!active)}>
+        <NavLink to="/" className="logopic" onClick={() => setActive(false)}>
           <img src="https://res.cloudinary.com/headincloud/image/upload/v1595455957/betrippinlogo.png" />
         </NavLink>
       </div>
