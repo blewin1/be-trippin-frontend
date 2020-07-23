@@ -1,10 +1,21 @@
-.suitcase-button {
- position: absolute;
- left: 0;
- z-index: 2;
+@import "../../../_config.scss";
 
+.suitcase-button {
+  position: absolute;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  margin-left: 20px;
 }
 
 .suitcase-button img {
-    width: 44px;
+  width: 44px;
+  box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.5);
+  background-color: $bg-color;
+}
+
+.suitcase-button img:hover {
+  box-shadow: 2px 2px 4px rgba(50, 100, 255, 0.9);
 }

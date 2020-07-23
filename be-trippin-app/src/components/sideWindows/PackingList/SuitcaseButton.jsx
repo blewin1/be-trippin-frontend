@@ -10,6 +10,7 @@ const SuitcaseButton = ({ suitcaseClickHandler }) => {
           alt="suitcase"
           width="44px"
         />
+        <div className="suitcase-button-overlay"></div>
       </button>
     </>
   );
