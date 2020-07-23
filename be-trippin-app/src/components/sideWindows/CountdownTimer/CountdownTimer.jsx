@@ -15,9 +15,10 @@ const CountdownTimer = ({ match, departureDateBackend, setTrip }) => {
   // const [timerStarted, setTimerStarted] = useState(false);
   const [departureDate, setDepartureDate] = useState("");
   const [showCountdownInput, setShowCountdownInput] = useState(false);
+  const [timerDone, setTimerDone] = useState(false);
 
   // useEffect(() => {
-  //   if (timerStarted) {
+  //   if (timer) {
   //     setTimeout(() => {
   //       getTimeUntil(departureDateBackend);
   //     }, 1000);
@@ -30,9 +31,10 @@ const CountdownTimer = ({ match, departureDateBackend, setTrip }) => {
         getTimeUntil(departureDateBackend);
       }, 1000);
     }
+    // else {
+    //   setTimerDone(true);
+    // }
   }, [timer]);
-
-  useEffect(() => {}, []);
 
   const handleDateChange = (event) => {
     setInput(event.target.value);
@@ -114,12 +116,19 @@ const CountdownTimer = ({ match, departureDateBackend, setTrip }) => {
         Departure: {displayDate}
       </button>
 
-      <div className="countdown-clock">
-        <span className="clock-days">{timer.days} days</span>
-        <span className="clock-hours">{timer.hours} hrs</span>
-        <span className="clock-minutes">{timer.minutes} min</span>
-        <span className="clock-seconds">{timer.seconds} sec</span>
-      </div>
+      {timer.minutes <= 0 && timer.seconds < 0 ? (
+        <div className="countdown-text">
+          <p>Let's Go!</p>{" "}
+        </div>
+      ) : (
+        <div className="countdown-clock">
+          <span className="clock-days">{timer.days} days</span>
+          <span className="clock-hours">{timer.hours} hrs</span>
+          <span className="clock-minutes">{timer.minutes} min</span>
+          <span className="clock-seconds">{timer.seconds} sec</span>
+        </div>
+      )}
+
       <div className={`timer-input ${showCountdownInput ? "visible" : ""}`}>
         <form onSubmit={handleDateSubmit}>
           <label htmlFor="date-input"></label>
