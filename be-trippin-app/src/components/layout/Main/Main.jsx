@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
+import "./main.scss";
 import Home from "../../routes/Home/Home";
 import TeamPage from "../../routes/TeamPage/TeamPage";
 import About from "../../routes/About/About";
