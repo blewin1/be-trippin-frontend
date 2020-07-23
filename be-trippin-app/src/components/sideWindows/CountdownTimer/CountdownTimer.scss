@@ -3,15 +3,12 @@
 .countdown-container {
   position: absolute;
   background-color: $button-color;
-  // background-color: #ffa800;
-  // background-color: rgba(255, 167, 0, 0.92);
   right: 0;
   top: 0;
   border-radius: 30px;
   min-width: 200px;
   padding: 10px;
   margin-right: 20px;
-  // box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
   box-shadow: 1px 1px 4px 1px rgba(50, 100, 255, 0.9);
   z-index: 5;
 }
@@ -58,7 +55,6 @@
 .timer-input input {
   border-radius: 30px;
   border: 2px solid grey;
-
   border: none;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
   width: 120px;

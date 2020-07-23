@@ -1,3 +1,20 @@
 .trip-page {
   position: relative;
 }
+
+.stop-card {
+}
+
+.stop-card .remove {
+  background-color: lightgrey;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+}
+
+@media only screen and (min-width: 768px) {
+  .trip-page {
+    display: grid;
+  }
+}
