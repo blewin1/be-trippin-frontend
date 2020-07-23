@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import PackingList from "../../sideWindows/PackingList/PackingList";
 import SuitcaseButton from "../../sideWindows/PackingList/SuitcaseButton";
 import CountdownTimer from "../../sideWindows/CountdownTimer/CountdownTimer";
-import Map from '../../gMapsComponents/Map/Map'
+import Map from "../../gMapsComponents/Map/Map";
 import LocationSearch from "../../gMapsComponents/LocationSearch/LocationSearch";
-import axios from 'axios';
+import axios from "axios";
 import apiUrl from "../../../apiConfig";
 import "./TripPage.scss";
 import StopList from "../../stopComponents/StopList/StopList";
@@ -13,32 +13,34 @@ import EditableText from "../../shared/EditableText/EditableText";
 
 const TripPage = ({ match }) => {
     const [packingListOpen, setPackingListOpen] = useState(false);
-    const [stops, setStops] = useState([])
-    const [trip, setTrip] = useState({})
+    const [stops, setStops] = useState([]);
+    const [trip, setTrip] = useState({});
+
+    // const [departureDateBackend, setDepartureDate] = useState("");
 
     useEffect(() => {
         refreshTrip();
-    }, [])
-
+    }, []);
 
     const refreshTrip = async () => {
         try {
             const tripData = await axios.get(`${apiUrl}/trips/${match.params.id}`);
-            console.log('Got Trip', tripData)
+            console.log("Got Trip", tripData);
             setTrip(tripData.data.trip);
+            // setDepartureDate(tripData.data.trip.departureDate);
         } catch (err) {
-            console.error('ERROR GETTING TRIPS', err);
+            console.error("ERROR GETTING TRIPS", err);
         }
-    }
+    };
 
     const handleSuitcaseButton = () => {
         setPackingListOpen(!packingListOpen);
     };
 
-    const getBestStopIndex = stop => {
+    const getBestStopIndex = (stop) => {
         //If there are less than 2 trips than we are still initializing origin and destination
         //so we can just add to the end of the array
-        if (trip.stops.length < 2) return -1
+        if (trip.stops.length < 2) return -1;
 
         //Find the closest existing stop
         const closest = { distance: null, index: 0 };
@@ -51,7 +53,7 @@ const TripPage = ({ match }) => {
                 closest.index = i;
             }
             return distance;
-        })
+        });
         //Check if stop is closest to origin or destination
         if (closest.index === 0) {
             return 1;
@@ -67,17 +69,20 @@ const TripPage = ({ match }) => {
                 return closest.index + 1;
             }
         }
-    }
+    };
 
     const addStop = async (stop) => {
         try {
-            const index = getBestStopIndex(stop)
-            const tripData = await axios.put(`${apiUrl}/trips/${match.params.id}/addStop/${index}`, stop);
+            const index = getBestStopIndex(stop);
+            const tripData = await axios.put(
+                `${apiUrl}/trips/${match.params.id}/addStop/${index}`,
+                stop
+            );
             setTrip(tripData.data.trip);
         } catch (err) {
-            console.error('ERROR GETTING TRIPS', err);
+            console.error("ERROR GETTING TRIPS", err);
         }
-    }
+    };
 
     const updateTitle = async title => {
         try {
@@ -91,15 +96,24 @@ const TripPage = ({ match }) => {
 
     let showPackingList = null;
     if (packingListOpen) {
-        showPackingList = <PackingList />;
+        showPackingList = (
+            <PackingList
+                match={match}
+                packingListData={trip.packingList}
+                setTrip={setTrip}
+            />
+        )
     }
 
     return (
         <div className="trip-page">
             <EditableText value={trip.name} className='title' handleSubmit={updateTitle} />
-            <SuitcaseButton suitcaseClickHandler={handleSuitcaseButton} />
+            <SuitcaseButton
+                suitcaseClickHandler={handleSuitcaseButton}
+                packingListData={trip.packingList}
+            />
             {showPackingList}
-            {trip.stops ?
+            {trip.stops ? (
                 <>
                     <LocationSearch addStop={addStop} numStops={trip.stops.length} />
                     <Map
@@ -110,10 +124,17 @@ const TripPage = ({ match }) => {
                         stops={trip.stops}
                     />
                 </>
-                : <h2>Loading Map...</h2>
-            }
-            {trip.stops ? <StopList trip={trip} setTrip={setTrip} /> : ''}
-            <CountdownTimer match={match} />
+            ) : (
+                    <h2>Loading Map...</h2>
+                )}
+            {trip.stops ? <StopList trip={trip} setTrip={setTrip} /> : ""}
+            <CountdownTimer
+                match={match}
+                departureDateBackend={trip.departureDate}
+                // Below code doesn't give most updated departureDate in the countdown component
+                // departureDateBackend={departureDateBackend}
+                setTrip={setTrip}
+            />
         </div>
     );
 };

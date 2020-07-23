@@ -1,10 +1,49 @@
-.suitcase-button {
- position: absolute;
- left: 0;
- z-index: 2;
+@import "../../../_config.scss";
 
+.suitcase-button-container {
+  position: relative;
+  width: 50px;
+}
+
+.suitcase-button {
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: 1px 1px 4px 1px rgba(50, 100, 255, 0.9);
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+  background-color: rgba(8, 105, 114, 1);
+  border: none;
+  margin: 15px 20px;
 }
 
 .suitcase-button img {
-    width: 44px;
+  width: 60px;
+}
+
+.suitcase-button-overlay {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease-out;
+  opacity: 0;
+  transform: translate(31px, 46px);
+  z-index: 4;
+}
+
+.suitcase-button-container:hover .suitcase-button-overlay {
+  opacity: 1;
+}
+
+.suitcase-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 5px;
+  padding: 2px;
+  font-weight: 700;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  background-color: rgba(170, 218, 255, 0.8);
 }
