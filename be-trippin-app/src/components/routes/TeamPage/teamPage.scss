@@ -10,7 +10,7 @@
    align-items: center;
    clip-path: polygon(100% 0%, 89% 49%, 100% 100%, 13% 100%, 0% 50%, 7% 0);
    grid-gap: 20px;
-   background-color: red;
+   background-color: rgba(69, 10, 231, 0.952)
    
 }
 
@@ -19,7 +19,7 @@
    color: white;
    text-shadow: rgba(0, 0, 0, 0.267);
    font-size: 45px;
-   background-color: rgba(218, 118, 26, 0.801);
+   background-color: rgba(29, 214, 128, 0.562);
    margin: 20px;
    padding: 10px;
    border-radius: 15px;
@@ -37,7 +37,7 @@
 
     .inner {
         width: 30%;
-        background: orange;
+        background: rgba(29, 214, 128, 0.562);
         padding: 1em;
         border-radius: 10px;
         width: 100%;
