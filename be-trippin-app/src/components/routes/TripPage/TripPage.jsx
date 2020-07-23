@@ -9,6 +9,7 @@ import apiUrl from "../../../apiConfig";
 import "./TripPage.scss";
 import StopList from "../../stopComponents/StopList/StopList";
 import { haversineDistance } from "../../../utils";
+import EditableText from "../../shared/EditableText/EditableText";
 
 const TripPage = ({ match }) => {
     const [packingListOpen, setPackingListOpen] = useState(false);
@@ -78,6 +79,15 @@ const TripPage = ({ match }) => {
         }
     }
 
+    const updateTitle = async title => {
+        try {
+            const tripData = await axios.put(`${apiUrl}/trips/${match.params.id}/`, { name: title });
+            refreshTrip()
+        } catch (err) {
+            console.error('ERROR UPDATING TITLE', err);
+        }
+    }
+
 
     let showPackingList = null;
     if (packingListOpen) {
@@ -86,6 +96,7 @@ const TripPage = ({ match }) => {
 
     return (
         <div className="trip-page">
+            <EditableText value={trip.name} className='title' handleSubmit={updateTitle} />
             <SuitcaseButton suitcaseClickHandler={handleSuitcaseButton} />
             {showPackingList}
             {trip.stops ?
