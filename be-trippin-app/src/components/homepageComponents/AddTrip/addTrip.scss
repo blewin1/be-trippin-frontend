@@ -1,10 +1,9 @@
-.search-trip {
+.add-trip {
   margin-top: 20px;
-  margin-bottom: 20px;
 }
 
-.searchbar,
-.clearbutton {
+.tripinput,
+.submitbutton {
   background-color: papayawhip;
   border: none;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -13,17 +12,17 @@
   padding: 10px;
 }
 
-.searchbar {
+.tripinput {
   border-radius: 20px 0 0 20px;
-  width: 220px;
+  width: 280px;
 }
 
-.clearbutton {
+.submitbutton {
   border-radius: 0 20px 20px 0;
   font-weight: bolder;
 }
 
-.searchbar:focus,
-.clearbutton:focus {
+.tripinput:focus,
+.submitbutton:focus {
   outline: none;
 }
