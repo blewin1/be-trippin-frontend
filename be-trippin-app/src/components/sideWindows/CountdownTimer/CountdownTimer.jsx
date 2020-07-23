@@ -12,12 +12,20 @@ const CountdownTimer = ({ match, departureDateBackend, setTrip }) => {
     minutes: 0,
     seconds: 0,
   });
-  const [timerStarted, setTimerStarted] = useState(false);
+  // const [timerStarted, setTimerStarted] = useState(false);
   const [departureDate, setDepartureDate] = useState("");
   const [showCountdownInput, setShowCountdownInput] = useState(false);
 
+  // useEffect(() => {
+  //   if (timerStarted) {
+  //     setTimeout(() => {
+  //       getTimeUntil(departureDateBackend);
+  //     }, 1000);
+  //   }
+  // }, [timer]);
+
   useEffect(() => {
-    if (timerStarted) {
+    if (timer) {
       setTimeout(() => {
         getTimeUntil(departureDateBackend);
       }, 1000);
@@ -30,38 +38,48 @@ const CountdownTimer = ({ match, departureDateBackend, setTrip }) => {
     setInput(event.target.value);
   };
 
+  // const handleDateSubmit = (event) => {
+  //   event.preventDefault();
+  //   // user input is sent to backend
+  //   addDeparture(input);
+  //   // user input is parsed into timer
+  //   getTimeUntil(input);
+  //   // getTimeUntil(departureDateBackend);
+  //   // this allows me to clear the input field after clicking submit
+  //   setDepartureDate(input);
+  //   // setDepartureDate(departureDateBackend);
+  //   setInput("");
+  //   // this tells useEfect to start re-rendering when the timer starts and needs to update every second
+  //   setTimerStarted(true);
+  // };
+
   const handleDateSubmit = (event) => {
     event.preventDefault();
     // user input is sent to backend
     addDeparture(input);
-    // user input is parsed into timer
-    getTimeUntil(input);
-    // getTimeUntil(departureDateBackend);
-    // this allows me to clear the input field after clicking submit
-    // setDepartureDate(input);
-    setDepartureDate(departureDateBackend);
+    // this allows me to set "input" as "departureDate" so I can clear the input field after clicking submit
+    setDepartureDate(input);
     setInput("");
-    // this tells useEfect to start re-rendering when the timer starts and needs to update every second
-    setTimerStarted(true);
   };
 
   // user input is sent to backend
   const addDeparture = async (date) => {
-    let formattedDate = date.toLocaleString();
+    let formattedDate = new Date(date);
     try {
       const response = await axios.put(
         `${apiUrl}/trips/${match.params.id}/updateDepartureDate`,
         { departureDate: formattedDate }
       );
       setTrip(response.data);
-      // console.log("added departure date: ", response.data.departureDate);
-      console.log("depart date backend", departureDateBackend);
+      console.log("added departure date: ", response.data.departureDate);
+      // "departureDateBackend" below isn't most updated backend Data, but above console log is!
+      // console.log("depart date backend", departureDateBackend);
     } catch (err) {
-      console.error(err);
+      console.error("Invalid departure date sent to backend ", err);
     }
   };
 
-  // user input is parsed into a timer
+  // now configured to get backend input to parse into timer
   const getTimeUntil = (inputTime) => {
     const time = Date.parse(inputTime) - Date.parse(new Date());
     const days = Math.floor(time / (1000 * 60 * 60 * 24));
@@ -80,10 +98,20 @@ const CountdownTimer = ({ match, departureDateBackend, setTrip }) => {
     setShowCountdownInput(!showCountdownInput);
   };
 
+  let displayDate = "";
+  if (departureDateBackend) {
+    const month = new Date(departureDateBackend).getMonth();
+    const date = new Date(departureDateBackend).getDate();
+    const year = new Date(departureDateBackend).getFullYear();
+    // Not sure why the month is subtracting a number so had to add 1
+    displayDate = `${month + 1}/${date}/${year}`;
+    // console.log("displayDate: ", displayDate);
+  }
+
   return (
     <div className="countdown-container">
       <button className="departure-button" onClick={toggleCountdownInput}>
-        Departure: {departureDate}
+        Departure: {displayDate}
       </button>
 
       <div className="countdown-clock">

@@ -16,7 +16,7 @@ const ListForm = ({ handlePackListSubmit, placeholder }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="list-form" onSubmit={handleSubmit}>
       <label htmlFor="list"></label>
       <input
         name="list"

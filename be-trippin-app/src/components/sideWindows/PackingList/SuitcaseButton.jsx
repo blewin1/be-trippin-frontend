@@ -1,18 +1,23 @@
 import React from "react";
 import "./SuitcaseButton.scss";
 
-const SuitcaseButton = ({ suitcaseClickHandler }) => {
+const SuitcaseButton = ({ suitcaseClickHandler, packingListData }) => {
+  let displayListNum = "";
+  if (packingListData) {
+    displayListNum = packingListData.length;
+  }
   return (
-    <>
-      <button className="suitcase-button" onClick={suitcaseClickHandler}>
+    <div className="suitcase-button-container" onClick={suitcaseClickHandler}>
+      <button className="suitcase-button">
         <img
           src="https://res.cloudinary.com/gaseir526-tashiono/image/upload/v1595100865/BeTrippin%20Assets/icons8-suitcase-96_nwijdu.png"
-          alt="suitcase"
-          width="44px"
+          alt="suitcase-button"
         />
-        <div className="suitcase-button-overlay"></div>
       </button>
-    </>
+      <div className="suitcase-button-overlay">
+        <div className="suitcase-text">{displayListNum} Items</div>
+      </div>
+    </div>
   );
 };
 
