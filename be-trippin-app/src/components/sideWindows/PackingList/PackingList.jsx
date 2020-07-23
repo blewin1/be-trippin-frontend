@@ -1,25 +1,43 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import apiUrl from "../../../apiConfig";
 import ListForm from "../../shared/ListForm/ListForm";
 import "./PackingList.scss";
 
-const PackingList = () => {
+const PackingList = ({ match, packingListData, setTrip }) => {
   const [listItems, setListItems] = useState([]);
 
-  // Refactor for CRUD POST
-  const handleSubmit = (item) => {
-    console.log("handle submit", item);
-    setListItems([...listItems, item]);
-  };
-  console.log("List of items", listItems);
+  useEffect(() => {
+    setListItems([...packingListData]);
+  }, [packingListData]);
 
-  // Refactor for CRUD DELETE with Packlist Array API call
+  const handleSubmit = (item) => {
+    updatePackingList([...listItems, item]);
+    // console.log("backend list", packingListData);
+  };
+
+  // console.log("Total list of items", listItems);
+
+  const updatePackingList = async (items) => {
+    // console.log("new item: ", items);
+    try {
+      const response = await axios.put(
+        `${apiUrl}/trips/${match.params.id}/updatePackingList`,
+        { packingList: JSON.stringify(items) }
+      );
+      setTrip(response.data);
+      // console.log("Updated items in backend: ", response.data.packingList);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const handleDelete = (deletedItem) => {
     console.log("handle delete", deletedItem);
-    const updatedList = listItems.filter((item, index) => {
+    const updatedList = packingListData.filter((item, index) => {
       return item !== deletedItem;
     });
-    setListItems(updatedList);
+    updatePackingList(updatedList);
   };
 
   let displayList = listItems.map((item, index) => (
@@ -40,7 +58,10 @@ const PackingList = () => {
     <div className="packing-list-border">
       <div className="packing-list">
         <p>Add your packing list items:</p>
-        <ListForm handlePackListSubmit={handleSubmit} />
+        <ListForm
+          placeholder={"Add an item"}
+          handlePackListSubmit={handleSubmit}
+        />
         <ol className="packing-list-items">{displayList}</ol>
       </div>
     </div>
