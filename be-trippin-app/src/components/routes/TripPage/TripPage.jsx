@@ -15,8 +15,6 @@ const TripPage = ({ match }) => {
   const [stops, setStops] = useState([]);
   const [trip, setTrip] = useState({});
 
-  // const [departureDateBackend, setDepartureDate] = useState("");
-
   useEffect(() => {
     refreshTrip();
   }, []);
@@ -26,7 +24,6 @@ const TripPage = ({ match }) => {
       const tripData = await axios.get(`${apiUrl}/trips/${match.params.id}`);
       console.log("Got Trip", tripData);
       setTrip(tripData.data.trip);
-      // setDepartureDate(tripData.data.trip.departureDate);
     } catch (err) {
       console.error("ERROR GETTING TRIPS", err);
     }
@@ -119,8 +116,6 @@ const TripPage = ({ match }) => {
       <CountdownTimer
         match={match}
         departureDateBackend={trip.departureDate}
-        // Below code doesn't give most updated departureDate in the countdown component
-        // departureDateBackend={departureDateBackend}
         setTrip={setTrip}
       />
     </div>
