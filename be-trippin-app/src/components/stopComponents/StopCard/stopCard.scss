@@ -20,6 +20,8 @@
 
   .things-to-do {
     grid-area: to-do;
+    font-family: "Lexend Zetta", sans-serif;
+    letter-spacing: -0.1em;
     ul {
       display: flex;
       flex-direction: column;
@@ -38,6 +40,7 @@
     font-weight: bold;
     font-size: 22px;
     font-family: "Lexend Zetta", sans-serif;
+    color: black;
   }
   .reorder-up {
     grid-area: reorder-up;

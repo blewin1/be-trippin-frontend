@@ -1,7 +1,9 @@
 @import "../../../_config.scss";
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Zetta&display=swap");
 
 .packing-list {
-  background-color: $button-color;
+  font-family: "Lexend Zetta", sans-serif;
+  background-color: rgb(252, 214, 1);
   position: fixed;
   top: 200px;
   width: 100vw;
@@ -18,14 +20,14 @@
 }
 
 .packing-list p {
-  color: white;
   padding-top: 30px;
+  padding-bottom: 10px;
+  max-width: 80%;
 }
 
 .packing-list-items {
   position: relative;
   height: 100vh;
-  color: white;
 }
 
 .packing-list-items li {
