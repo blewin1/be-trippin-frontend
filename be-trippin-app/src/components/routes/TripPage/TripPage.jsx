@@ -20,15 +20,16 @@ const TripPage = ({ match }) => {
     refreshTrip();
   }, []);
 
-  const refreshTrip = async () => {
-    try {
-      const tripData = await axios.get(`${apiUrl}/trips/${match.params.id}`);
-      console.log("Got Trip", tripData);
-      setTrip(tripData.data.trip);
-    } catch (err) {
-      console.error("ERROR GETTING TRIPS", err);
-    }
-  };
+
+    const refreshTrip = async () => {
+        try {
+            const tripData = await axios.get(`${apiUrl}/trips/${match.params.id}`);
+            console.log("Got Trip", tripData);
+            setTrip(tripData.data.trip);
+        } catch (err) {
+            console.error("ERROR GETTING TRIPS", err);
+        }
+    };
 
   const handleSuitcaseButton = () => {
     setPackingListOpen(!packingListOpen);
@@ -90,6 +91,7 @@ const updateTitle = async title => {
     }
 }
 
+
   let showPackingList = null;
   if (packingListOpen) {
     showPackingList = (
@@ -98,45 +100,37 @@ const updateTitle = async title => {
         packingListData={trip.packingList}
         setTrip={setTrip}
       />
-    );
-  }
-
-  return (
-    <div className="trip-page">
-      <EditableText
-        value={trip.name}
-        className="title"
-        handleSubmit={updateTitle}
-      />
-      <SuitcaseButton
-        suitcaseClickHandler={handleSuitcaseButton}
-        packingListData={trip.packingList}
-      />
-      {showPackingList}
-      {trip.stops ? (
-        <>
-          <LocationSearch addStop={addStop} numStops={trip.stops.length} />
-
-          <Map
-            loadingElement={<div style={{ height: `100%` }} />}
-            containerElement={
-              <div className="google-map" />
-            }
-            mapElement={<div style={{ height: `100%` }} />}
-            // stops={stops}
-            stops={trip.stops}
+    )};
+    return (
+        <div className="trip-page">
+            <EditableText value={trip.name} className='title' handleSubmit={updateTitle} />
+            <SuitcaseButton
+                suitcaseClickHandler={handleSuitcaseButton}
+                packingListData={trip.packingList}
+            />
+            {showPackingList}
+            {trip.stops ? (
+                <>
+                    <LocationSearch addStop={addStop} numStops={trip.stops.length} />
+                    <Map
+                        loadingElement={<div style={{ height: `100%` }} />}
+                        containerElement={
+                          <div className="google-map" />
+                         }
+                        mapElement={<div style={{ height: `100%` }} />}
+                        stops={trip.stops}
+                    />
+                </>
+            ) : (
+                    <h2>Loading Map...</h2>
+                )}
+            {trip.stops ? <StopList trip={trip} setTrip={setTrip} refreshTrip={refreshTrip} /> : ""}
+          <CountdownTimer
+            match={match}
+            departureDateBackend={trip.departureDate}
+            setTrip={setTrip}
           />
-        </>
-      ) : (
-        <h2>Loading Map...</h2>
-      )}
-      {trip.stops ? <StopList trip={trip} setTrip={setTrip} /> : ""}
-      <CountdownTimer
-        match={match}
-        departureDateBackend={trip.departureDate}
-        setTrip={setTrip}
-      />
-    </div>
+        </div>
   );
 };
 

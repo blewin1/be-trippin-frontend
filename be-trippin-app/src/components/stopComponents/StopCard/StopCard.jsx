@@ -3,8 +3,9 @@ import ListForm from '../../shared/ListForm/ListForm'
 import axios from 'axios'
 import apiUrl from '../../../apiConfig'
 import './stopCard.scss'
+import EditableText from '../../shared/EditableText/EditableText'
 
-const StopCard = ({ stop, setTrip, tripId, reorder, first, last }) => {
+const StopCard = ({ stop, setTrip, refreshTrip, tripId, reorder, first, last }) => {
 
     const removeStop = async () => {
         try {
@@ -14,17 +15,46 @@ const StopCard = ({ stop, setTrip, tripId, reorder, first, last }) => {
             console.error('ERROR GETTING TRIPS', err);
         }
     }
-    const reorderDown = () => {
-
+    const updateStopName = async (name) => {
+        try {
+            const tripData = await axios.put(`${apiUrl}/stops/${stop._id}/`, { name: name });
+            refreshTrip();
+        } catch (err) {
+            console.error('ERROR UPDATING STOP NAME', err);
+        }
     }
+    const updateTodos = async (todos) => {
+        try {
+            const tripData = await axios.put(`${apiUrl}/stops/${stop._id}/`, { thingsToDo: todos });
+            refreshTrip();
+        } catch (err) {
+            console.error('ERROR UPDATING STOP NAME', err);
+        }
+    }
+    const addToDo = (todo) => {
+        const todoList = [...stop.thingsToDo, todo];
+        updateTodos(todoList);
+    }
+    const removeTodo = (i) => {
+        const todoList = [...stop.thingsToDo];
+        todoList.splice(i, 1)
+        updateTodos(todoList)
+    }
+
     return (
         <div className='stop-card'>
-            <h3 className="stop-name">{stop.name}</h3>
-            <ul className="things-to-do">
-                {stop.thingsToDo.map((el, i) => <span className="list-item" key={i}>{el}</span>)}
-            </ul>
+            <EditableText value={stop.name} className='stop-name' handleSubmit={updateStopName} />
+            <div className='things-to-do'>
+                <ul>
+                    {stop.thingsToDo.map((el, i) =>
+                        <div className="list-item" key={i}>
+                            <span>{el}</span>
+                            <span className="remove-item" onClick={() => removeTodo(i)}>X</span>
+                        </div>)}
+                </ul>
+                <ListForm placeholder="Add a Todo Item" handleSubmit={addToDo} />
+            </div>
             <span className='remove-stop' onClick={removeStop}>X</span>
-            {/* <ListForm /> */}
             {!first ? <span className="reorder-up" onClick={() => reorder('UP')}>^</span> : ''}
             {!last ? <span className="reorder-down" onClick={() => reorder('DOWN')}>v</span> : ''}
         </div>
