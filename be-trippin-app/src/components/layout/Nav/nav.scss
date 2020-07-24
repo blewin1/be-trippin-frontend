@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 /* Style the navigation menu */
 .topnav {
   font-family: "Lexend Zetta";

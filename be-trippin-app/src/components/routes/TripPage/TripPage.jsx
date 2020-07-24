@@ -20,16 +20,15 @@ const TripPage = ({ match }) => {
         refreshTrip();
     }, []);
 
-
-    const refreshTrip = async () => {
-        try {
-            const tripData = await axios.get(`${apiUrl}/trips/${match.params.id}`);
-            console.log("Got Trip", tripData);
-            setTrip(tripData.data.trip);
-        } catch (err) {
-            console.error("ERROR GETTING TRIPS", err);
-        }
-    };
+  const refreshTrip = async () => {
+    try {
+      const tripData = await axios.get(`${apiUrl}/trips/${match.params.id}`);
+      console.log("Got Trip", tripData);
+      setTrip(tripData.data.trip);
+    } catch (err) {
+      console.error("ERROR GETTING TRIPS", err);
+    }
+  };
 
     const handleSuitcaseButton = () => {
         setPackingListOpen(!packingListOpen);

@@ -1,18 +1,18 @@
 .google-places-autocomplete__input {
   width: 50vw;
-  min-width: 300px;
+  min-width: 250px;
   padding: 20px;
   border-radius: 30px;
   margin: 20px;
   font-weight: 700;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
-  
+  // border: 1px solid red;
 }
 
-
- @media only screen and (min-width: 768px) {
-
-.google-places-autocomplete__input  {
-   max-width: 350px;
+@media only screen and (min-width: 768px) {
+  .google-places-autocomplete__input {
+    // max-width: 350px;
+    width: 30vw;
+    min-width: 250px;
   }
- }
+}

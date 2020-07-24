@@ -24,10 +24,12 @@ const ListForm = ({ handleSubmit, placeholder }) => {
         placeholder={placeholder}
         onChange={handleChange}
         value={input}
+        className="list-input"
       />
-      <button className="submit-button" type="submit">
-        Submit
-      </button>
+      {/* <button className="submit-button" type="submit">
+        &plus;
+      </button> */}
+      <input type="submit" value="&#43;" className="submit-button" />
     </form>
   );
 };
