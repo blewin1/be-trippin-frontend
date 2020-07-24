@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Lexend+Zetta&display=swap');
+
 * {
   //   border: 1px solid gold;
   box-sizing: border-box;
@@ -5,8 +7,10 @@
 
 /* Style the navigation menu */
 .topnav {
+  font-family: "Lexend Zetta";
+  font-weight: 1000;
   overflow: hidden;
-  background-color: peru;
+  background-color: rgb(5, 5, 5);
   padding: 5px 20px;
   position: fixed;
   top: 0px;

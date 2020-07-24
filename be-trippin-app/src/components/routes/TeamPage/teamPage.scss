@@ -1,6 +1,6 @@
 @import 'src/_config.scss';
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Cormorant+Garamond:wght@500&family=Lexend+Zetta&display=swap');
 .all{
    margin: 0;
    height: 200vh;
@@ -10,16 +10,17 @@
    align-items: center;
    clip-path: polygon(100% 0%, 89% 49%, 100% 100%, 13% 100%, 0% 50%, 7% 0);
    grid-gap: 20px;
-   background-color: red;
+   background-color:rgb(252, 214, 1)
    
 }
 
 .meet {
-   font-family:"Cormorant Garmond";
-   color: white;
+   font-family:"Carter one";
+   color: black;
    text-shadow: rgba(0, 0, 0, 0.267);
-   font-size: 45px;
-   background-color: rgba(218, 118, 26, 0.801);
+   font-size: 40px;
+   line-height: 50px;
+   background-color: orange;
    margin: 20px;
    padding: 10px;
    border-radius: 15px;
@@ -53,7 +54,7 @@
 
     .resume{
         color: white;
-        font-size: .8rem;
+        font-size: .9rem;
     }
 }
 
@@ -89,7 +90,7 @@
 
     .resume{
         color: white;
-        font-size: .8rem;
+        font-size: .9rem;
     }
 }
 
@@ -125,7 +126,7 @@
 
     .resume {
         color: white;
-        font-size: .8rem;
+        font-size: .9rem;
     }
 }
 
@@ -160,7 +161,7 @@
 
     .resume {
         color: white;
-        font-size: .8rem;
+        font-size: .9rem;
     }
 }
 
@@ -180,7 +181,11 @@
         grid-template-rows: 100px, 100px, 100px;
         justify-items: center;
         align-items: center;
-        background: lightblue;
+        background: url("https://res.cloudinary.com/twin2052000/image/upload/v1595270799/car_fast_kskclu.jpg");
+        background-size: cover;
+        background-position: center;
+        
+        background-repeat: no-repeat;
         clip-path: none;
         grid-template-areas:
         "meet nat nat . antwain antwain"

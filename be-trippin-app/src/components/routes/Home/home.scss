@@ -1,7 +1,8 @@
-@import "src/_config.scss";
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap");
 
-
+@import 'src/_config.scss';
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Lexend+Zetta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Cormorant+Garamond:wght@500&family=Lexend+Zetta&display=swap');
 
 html{
     // background-color: #fac000;
@@ -75,7 +76,7 @@ html{
 }
 
 .text {
-    font-family: "cormorant garamond";
+  font-family: "Carter One";
     position: relative;
     color: #fff;
     font-size: 40px;
@@ -83,37 +84,35 @@ html{
 
 }
 
+.trips {
+  font-family: 'Lexend Zetta';
+  font-size: 30px;
+  margin-top: 30px;
+  display: table-cell;
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+  animation: animate 2s linear infinite;
 
-// .mountain {
-//   transform: translateY(1.9999px);
-// }
+  @keyframes animate 
+  { 0%, 100%
+   { 
+    color: rgb(16, 118, 235);
+    filter: blur(4px);
+    box-shadow: 0 0 10px #00b3ff,
+                0 0 20px #00b3ff,
+                0 0 30px #00b3ff,
+                0 0 40px #00b3ff,
+                0 0 50px #00b3ff,
+                0 0 60px #00b3ff,
+  } 10%, 95%
+  { 
+   color: rgb(252, 252, 252);
+   filter: blur(0px);
 
-
-
-
-
-
-
-
- .homepage {
-    background-image: url("https://res.cloudinary.com/twin2052000/image/upload/v1595270799/car_fast_kskclu.jpg");    
-    
-    
-    
+ }
 }
-
-
-// .lcontainer {
-// // background-image: url("https://res.cloudinary.com/twin2052000/image/upload/v1595270799/car_fast_kskclu.jpg");
-// height: 50%;
-// width: 50%;
-
-// }
-
-// img {
-//     border-radius: 20px;
-//     border-color: rgb(23,116,154);
-// }
+}
 
 @media (min-width: 786px) {
 
@@ -121,7 +120,7 @@ html{
       background: #17749B;
     // background: #fac000;
     // background: #0a2a43;
-      min-height: 1500px;
+      min-height: 1600px;
       
   }
 
@@ -136,6 +135,7 @@ html{
   }
   .right {
     grid-column: 2/3;
+
   }
 
   .par{
@@ -190,11 +190,52 @@ html{
   }
 
   .text {
-      font-family: "cormorant garamond";
+    font-family:  'Carter One';
+      // font-family: "cormorant garamond";
       position: relative;
       color: #fff;
       font-size: 10em;
       z-index: 1;
+
+  }
+
+  .par2 {
+
+    margin-top: 70px;
+    
+
+  }
+
+
+  .trips {
+      font-family: 'Lexend Zetta';
+      font-size: 50px;
+      margin-top: 30px;
+      display: table-cell;
+      border-radius: 10px;
+      margin: 0;
+      padding: 0;
+      animation: animate 2s linear infinite;
+
+      @keyframes animate 
+      { 0%, 100%
+       { 
+        color: rgb(16, 118, 235);
+        filter: blur(4px);
+        box-shadow: 0 0 10px #00b3ff,
+                    0 0 20px #00b3ff,
+                    0 0 30px #00b3ff,
+                    0 0 40px #00b3ff,
+                    0 0 50px #00b3ff,
+                    0 0 60px #00b3ff,
+      } 10%, 95%
+      { 
+       color: rgb(252, 252, 252);
+       filter: blur(0px);
+
+     }
+    }
+
 
   }
 
