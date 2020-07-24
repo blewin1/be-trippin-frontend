@@ -84,14 +84,21 @@ html{
 
 }
 
-.trips {
+.par2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+ .trips1 {
   font-family: 'Lexend Zetta';
   font-size: 30px;
   margin-top: 30px;
   display: table-cell;
   border-radius: 10px;
   margin: 0;
-  padding: 0;
+  padding-left: 0;
   animation: animate 2s linear infinite;
 
   @keyframes animate 
@@ -105,13 +112,19 @@ html{
                 0 0 40px #00b3ff,
                 0 0 50px #00b3ff,
                 0 0 60px #00b3ff,
-  } 10%, 95%
+  } 10%, 100%
   { 
    color: rgb(252, 252, 252);
    filter: blur(0px);
 
  }
 }
+
+}
+
+.trips {
+  display: none;
+  color: rgba(1, 1, 1, 0);
 }
 
 @media (min-width: 786px) {
@@ -204,6 +217,11 @@ html{
     margin-top: 70px;
     
 
+  }
+
+  .trips1 {
+    display: none;
+    
   }
 
 
