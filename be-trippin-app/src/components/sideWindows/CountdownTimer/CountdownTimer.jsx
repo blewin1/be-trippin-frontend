@@ -12,27 +12,35 @@ const CountdownTimer = ({ match, departureDateBackend, setTrip }) => {
     minutes: 0,
     seconds: 0,
   });
-  const [departureDate, setDepartureDate] = useState("");
+  // const [departureDate, setDepartureDate] = useState("");
   const [showCountdownInput, setShowCountdownInput] = useState(false);
+  const [refresh, setRefresh] = useState(false);
+
+  const toggleRefresh = () => setRefresh(!refresh)
 
   useEffect(() => {
-    if (timer) {
-      setTimeout(() => {
-        getTimeUntil(departureDateBackend);
-      }, 1000);
-    }
-  }, [timer]);
+    getTimeUntil(departureDateBackend);
+    setTimeout(() => {
+      toggleRefresh()
+    }, 1000);
+  }, [refresh]);
+
+  useEffect(() => {
+    getTimeUntil(departureDateBackend);
+  }, [departureDateBackend])
 
   const handleDateChange = (event) => {
     setInput(event.target.value);
   };
 
+
   const handleDateSubmit = (event) => {
     event.preventDefault();
     // user input is sent to backend
     addDeparture(input);
-    // this allows me to set "input" as "departureDate" so I can clear the input field after clicking submit
-    setDepartureDate(input);
+    // close the input form
+    setShowCountdownInput(false);
+    // clear the input
     setInput("");
   };
 
@@ -66,6 +74,7 @@ const CountdownTimer = ({ match, departureDateBackend, setTrip }) => {
     });
   };
 
+
   const toggleCountdownInput = () => {
     setShowCountdownInput(!showCountdownInput);
   };
@@ -83,21 +92,21 @@ const CountdownTimer = ({ match, departureDateBackend, setTrip }) => {
   return (
     <div className="countdown-container">
       <button className="departure-button" onClick={toggleCountdownInput}>
-        Departure: {displayDate}
+        {departureDateBackend ? `Departure: ${displayDate}` : 'Set Departure Date'}
       </button>
 
-      {!departureDateBackend || (timer.minutes <= 0 && timer.seconds <= 0) ? (
+      {departureDateBackend && timer.days ? ((timer.days <= 0 && timer.hours <= 0 && timer.minutes <= 0 && timer.seconds <= 0) ? (
         <div className="countdown-text">
-          <p>Let's Go!</p>{" "}
+          <p>Let's Go!</p>
         </div>
       ) : (
-        <div className="countdown-clock">
-          <span className="clock-days">{timer.days} days</span>
-          <span className="clock-hours">{timer.hours} hrs</span>
-          <span className="clock-minutes">{timer.minutes} min</span>
-          <span className="clock-seconds">{timer.seconds} sec</span>
-        </div>
-      )}
+          <div className="countdown-clock">
+            <span className="clock-days">{timer.days} days</span>
+            <span className="clock-hours">{timer.hours} hrs</span>
+            <span className="clock-minutes">{timer.minutes} min</span>
+            <span className="clock-seconds">{timer.seconds} sec</span>
+          </div>
+        )) : ""}
 
       <div className={`timer-input ${showCountdownInput ? "visible" : ""}`}>
         <form onSubmit={handleDateSubmit}>

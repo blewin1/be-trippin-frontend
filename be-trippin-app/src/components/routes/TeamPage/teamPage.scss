@@ -1,6 +1,6 @@
 @import 'src/_config.scss';
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Cormorant+Garamond:wght@500&family=Lexend+Zetta&display=swap');
 .all{
    margin: 0;
    height: 200vh;
@@ -10,16 +10,17 @@
    align-items: center;
    clip-path: polygon(100% 0%, 89% 49%, 100% 100%, 13% 100%, 0% 50%, 7% 0);
    grid-gap: 20px;
-   background-color: red;
+   background-color:rgb(252, 214, 1)
    
 }
 
 .meet {
-   font-family:"Cormorant Garmond";
-   color: white;
+   font-family:"Carter one";
+   color: black;
    text-shadow: rgba(0, 0, 0, 0.267);
-   font-size: 45px;
-   background-color: rgba(218, 118, 26, 0.801);
+   font-size: 40px;
+   line-height: 50px;
+   background-color: orange;
    margin: 20px;
    padding: 10px;
    border-radius: 15px;
@@ -28,6 +29,7 @@
 
 .nat {
     width: 65%;
+    max-width: 300px;
     background-image: url("https://res.cloudinary.com/gaseir526-tashiono/image/upload/v1595345922/Avatars/tasha-pic_hdtzmq.jpg");
     border-radius: 10px;
     background-size: cover;
@@ -53,7 +55,7 @@
 
     .resume{
         color: white;
-        font-size: .8rem;
+        font-size: .9rem;
     }
 }
 
@@ -65,6 +67,7 @@
 
 .antwain{
     width: 65%;
+    max-width: 300px;
     background-image: url("https://res.cloudinary.com/twin2052000/image/upload/v1595304041/Antwain_HS_hpcvdf.jpg");
     border-radius: 10px;
     background-size: cover;
@@ -89,7 +92,7 @@
 
     .resume{
         color: white;
-        font-size: .8rem;
+        font-size: .9rem;
     }
 }
 
@@ -101,6 +104,7 @@
 
 .jen {
     width: 65%;
+    max-width: 300px;
     background-image: url("https://res.cloudinary.com/headincloud/image/upload/v1593861162/myavatar.png");
     border-radius: 10px;
     background-size: cover;
@@ -125,7 +129,7 @@
 
     .resume {
         color: white;
-        font-size: .8rem;
+        font-size: .9rem;
     }
 }
 
@@ -136,6 +140,7 @@
 }
 .ben {
     width: 65%;
+    max-width: 300px;
     background-image: url("https://ca.slack-edge.com/T0351JZQ0-U014FGZLJHW-11f7ba3ba876-512");
     border-radius: 10px;
     background-size: cover;
@@ -160,7 +165,7 @@
 
     .resume {
         color: white;
-        font-size: .8rem;
+        font-size: .9rem;
     }
 }
 
@@ -170,27 +175,26 @@
 
 }
 
-@media (min-width: 786px) {
+@media (min-width: 1044px) {
+
     .all {
     
         width: 100%;
-        height: 100%;
+        height: 100vh;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 2fr));
+        grid-template-columns: repeat(6, minmax(200px, 2fr));
         grid-template-rows: 100px, 100px, 100px;
         justify-items: center;
         align-items: center;
-        background: lightblue;
+        background: url("https://res.cloudinary.com/twin2052000/image/upload/v1595270799/car_fast_kskclu.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         clip-path: none;
         grid-template-areas:
-        "meet nat nat . antwain antwain"
-        "jen jen . ben ben .";
-
-        
-        
-     
-     
-     }
+        "meet nat nat antwain antwain ."
+        "jen jen ben ben . .";
+    }
 
      .meet{
          object-fit: cover;
