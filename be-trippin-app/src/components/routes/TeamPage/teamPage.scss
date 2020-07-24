@@ -29,6 +29,7 @@
 
 .nat {
     width: 65%;
+    max-width: 300px;
     background-image: url("https://res.cloudinary.com/gaseir526-tashiono/image/upload/v1595345922/Avatars/tasha-pic_hdtzmq.jpg");
     border-radius: 10px;
     background-size: cover;
@@ -66,6 +67,7 @@
 
 .antwain{
     width: 65%;
+    max-width: 300px;
     background-image: url("https://res.cloudinary.com/twin2052000/image/upload/v1595304041/Antwain_HS_hpcvdf.jpg");
     border-radius: 10px;
     background-size: cover;
@@ -102,6 +104,7 @@
 
 .jen {
     width: 65%;
+    max-width: 300px;
     background-image: url("https://res.cloudinary.com/headincloud/image/upload/v1593861162/myavatar.png");
     border-radius: 10px;
     background-size: cover;
@@ -137,6 +140,7 @@
 }
 .ben {
     width: 65%;
+    max-width: 300px;
     background-image: url("https://ca.slack-edge.com/T0351JZQ0-U014FGZLJHW-11f7ba3ba876-512");
     border-radius: 10px;
     background-size: cover;
@@ -172,7 +176,7 @@
 }
 
 @media (min-width: 1044px) {
-    
+
     .all {
     
         width: 100%;
@@ -190,12 +194,7 @@
         grid-template-areas:
         "meet nat nat antwain antwain ."
         "jen jen ben ben . .";
-
-        
-        
-     
-     
-     }
+    }
 
      .meet{
          object-fit: cover;
