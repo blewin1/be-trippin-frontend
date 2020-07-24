@@ -2,8 +2,9 @@
 
 footer {
   color: $example-color;
-  position: fixed;
-  bottom: 0;
+  // position: fixed;
+  // bottom: 0;
+  padding: 10px;
   width: 100%;
   z-index: 2;
 }

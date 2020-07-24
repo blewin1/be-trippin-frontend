@@ -1,20 +1,40 @@
-.list-form input {
-  height: 30px;
-  border-radius: 30px;
-  border: none;
-  text-align: center;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
-  font-weight: 700;
-}
+.list-input,
 .submit-button {
-  cursor: pointer;
-   border-radius: 30px;
-   padding: 5px;
-   border: none;
-  margin: 10px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  border: none;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  padding: 12px;
+}
+.list-input {
+  border-radius: 20px 0 0 20px;
+  width: 110px;
   font-weight: 700;
 }
+
+.submit-button {
+  border-radius: 0 20px 20px 0;
+  font-weight: bolder;
+}
+
+.list-input:focus,
+.submit-button:focus {
+  outline: none;
+}
+
 .submit-button:hover {
   background-color: rgba(74, 218, 253, 0.6);
+}
+
+@media only screen and (min-width: 768px) {
+  .list-input {
+    width: 100px;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .list-input {
+    width: 130px;
+  }
 }
