@@ -31,7 +31,7 @@ const CountdownTimer = ({ match, departureDateBackend, setTrip }) => {
     event.preventDefault();
     // user input is sent to backend
     addDeparture(input);
-    // this allows me to set "input" as "departureDate" so I can clear the input field after clicking submit
+    // this allows us to set "input" as "departureDate" so input field can be cleared after clicking submit
     setDepartureDate(input);
     setInput("");
   };
@@ -46,14 +46,12 @@ const CountdownTimer = ({ match, departureDateBackend, setTrip }) => {
       );
       setTrip(response.data);
       console.log("added departure date: ", response.data.departureDate);
-      // "departureDateBackend" below isn't most updated backend Data, but above console log is!
-      // console.log("depart date backend", departureDateBackend);
     } catch (err) {
       console.error("Invalid departure date sent to backend ", err);
     }
   };
 
-  // now configured to get backend input to parse into timer
+  // configured to get backend input to parse into timer
   const getTimeUntil = (inputTime) => {
     const time = Date.parse(inputTime) - Date.parse(new Date());
     const days = Math.floor(time / (1000 * 60 * 60 * 24));
@@ -79,7 +77,6 @@ const CountdownTimer = ({ match, departureDateBackend, setTrip }) => {
     const year = new Date(departureDateBackend).getFullYear();
     // Not sure why the month is subtracting a number so had to add 1
     displayDate = `${month + 1}/${date}/${year}`;
-    // console.log("displayDate: ", displayDate);
   }
 
   return (
@@ -88,7 +85,7 @@ const CountdownTimer = ({ match, departureDateBackend, setTrip }) => {
         Departure: {displayDate}
       </button>
 
-      {timer.minutes <= 0 && timer.seconds < 0 ? (
+      {!departureDateBackend || (timer.minutes <= 0 && timer.seconds <= 0) ? (
         <div className="countdown-text">
           <p>Let's Go!</p>{" "}
         </div>
