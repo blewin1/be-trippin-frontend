@@ -9,6 +9,7 @@ import SearchTrip from "../../homepageComponents/SearchTrip/SearchTrip";
 const Home = ({ history }) => {
   const [trips, setTrips] = useState([]);
   const [filteredTrips, setFilteredTrips] = useState([]);
+  const [deletedId, setDeletedId] = useState("");
 
   useEffect(() => {
     const initTripList = async () => {
@@ -18,6 +19,14 @@ const Home = ({ history }) => {
     // getTrips();
     initTripList();
   }, []);
+
+  useEffect(() => {
+    const refreshTripList = async () => {
+      const alltrips = await getTrips();
+      setFilteredTrips(filteredTrips.filter(el => el._id != deletedId));
+    };
+    if (deletedId) refreshTripList();
+  }, [deletedId]);
 
   const getTrips = async () => {
     try {
@@ -46,6 +55,7 @@ const Home = ({ history }) => {
           history={history}
           trips={filteredTrips}
           getTrips={getTrips}
+          setDeletedId={setDeletedId}
         />
       </div>
     </div>
