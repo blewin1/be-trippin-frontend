@@ -3,11 +3,12 @@ import axios from "axios";
 import apiUrl from "../../../apiConfig";
 import "./tripList.scss";
 
-const TripList = ({ history, trips, getTrips }) => {
+const TripList = ({ history, trips, getTrips, setDeletedId }) => {
   const deleteTrip = async (e, id) => {
     e.stopPropagation();
     try {
       await axios.delete(`${apiUrl}/trips/${id}`);
+      setDeletedId(id)
       getTrips();
     } catch (err) {
       console.error("Failed to delete trip", err);
