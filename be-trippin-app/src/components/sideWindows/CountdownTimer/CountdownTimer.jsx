@@ -92,10 +92,10 @@ const CountdownTimer = ({ match, departureDateBackend, setTrip }) => {
   return (
     <div className="countdown-container">
       <button className="departure-button" onClick={toggleCountdownInput}>
-        {departureDateBackend ? `Departure: ${displayDate}` : 'Set Deparure Date'}
+        {departureDateBackend ? `Departure: ${displayDate}` : 'Set Departure Date'}
       </button>
 
-      {departureDateBackend && timer.days ? ((timer.minutes <= 0 && timer.days <= 0) ? (
+      {departureDateBackend && timer.days ? ((timer.days <= 0 && timer.hours <= 0 && timer.minutes <= 0 && timer.seconds <= 0) ? (
         <div className="countdown-text">
           <p>Let's Go!</p>
         </div>
