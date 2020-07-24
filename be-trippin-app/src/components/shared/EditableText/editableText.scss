@@ -1,8 +1,28 @@
 @import "src/_config.scss";
 
 .editable-text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  display: inline-block;
   cursor: pointer;
+  padding-top: 120px;
+  margin: 0 auto;
+  min-width: 30px;
+  color: white;
+}
+
+.editable-text input {
+  border-radius: 30px;
+  border: none;
+  text-align: center;
+  padding: 10px;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .title, .editable-text {
+    margin-bottom: 100px;
+    font-size: 100px;
+  }
 }

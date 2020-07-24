@@ -10,7 +10,7 @@
   padding: 10px;
   margin-right: 20px;
   box-shadow: 1px 1px 4px 1px rgba(50, 100, 255, 0.9);
-  z-index: 5;
+  z-index: 3;
 }
 
 .departure-button {
@@ -79,4 +79,11 @@
 }
 .timer-submit:hover {
   background-color: rgba(74, 218, 253, 0.6);
+}
+
+// For responsive mobile 
+@media only screen and (max-width: 768px) {
+  .countdown-container {
+    margin-right: 0;
+  }
 }

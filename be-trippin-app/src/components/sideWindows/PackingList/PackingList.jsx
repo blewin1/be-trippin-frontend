@@ -32,13 +32,25 @@ const PackingList = ({ match, packingListData, setTrip }) => {
     }
   };
 
+  // const handleDelete = (deletedItem) => {
+  //   console.log("handle delete", deletedItem);
+  //   const updatedList = packingListData.filter((item, index) => {
+  //     return item !== deletedItem;
+  //   });
+  //   updatePackingList(updatedList);
+  // };
+
+
   const handleDelete = (deletedItem) => {
     console.log("handle delete", deletedItem);
-    const updatedList = packingListData.filter((item, index) => {
-      return item !== deletedItem;
-    });
-    updatePackingList(updatedList);
-  };
+    const itemIndex = packingListData.indexOf(deletedItem);
+    if(itemIndex > -1){
+      const updatedList = packingListData.filter((item, index) => index !== itemIndex)
+      updatePackingList(updatedList);
+    }
+    };
+
+
 
   let displayList = listItems.map((item, index) => (
     <li key={index}>
@@ -55,7 +67,6 @@ const PackingList = ({ match, packingListData, setTrip }) => {
   ));
 
   return (
-    <div className="packing-list-border">
       <div className="packing-list">
         <p>Add your packing list items:</p>
         <ListForm
@@ -64,7 +75,6 @@ const PackingList = ({ match, packingListData, setTrip }) => {
         />
         <ol className="packing-list-items">{displayList}</ol>
       </div>
-    </div>
   );
 };
 

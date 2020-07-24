@@ -1,35 +1,46 @@
-import React, { useState, useEffect } from 'react'
-import './editableText.scss'
+import React, { useState, useEffect } from "react";
+import "./editableText.scss";
 
 const EditableText = ({ value, className, handleSubmit }) => {
-    const [text, setText] = useState("");
-    const [editing, setEditing] = useState(false);
+  const [text, setText] = useState("");
+  const [editing, setEditing] = useState(false);
 
-    useEffect(() => {
-        setText(value)
-    }, [value])
+  useEffect(() => {
+    setText(value);
+  }, [value]);
 
-    const handleChange = (event) => {
-        setText(event.target.value);
-    };
+  const handleChange = (event) => {
+    setText(event.target.value);
+  };
 
-    const submitForm = (event) => {
-        event.preventDefault();
-        handleSubmit(text);
-        setEditing(false)
-    };
+  const submitForm = (event) => {
+    event.preventDefault();
+    handleSubmit(text);
+    setEditing(false);
+  };
 
-    if (!editing) {
-        return <span className={`${className} editable-text`} onClick={() => setEditing(true)}>{text}</span>
-    } else {
-        return (
-            <form className="editable-text" onSubmit={submitForm}>
-                <input className={className} type="text" value={text} onChange={handleChange} />
-                <input type="submit" />
-            </form >
-        )
-    }
+  if (!editing) {
+    return (
+      <span
+        className={`${className} editable-text`}
+        onClick={() => setEditing(true)}
+      >
+        {text}
+      </span>
+    );
+  } else {
+    return (
+      <form className="editable-text" onSubmit={submitForm}>
+        <input
+          className={className}
+          type="text"
+          value={text}
+          onChange={handleChange}
+        />
+        <input className="submit-button" type="submit" />
+      </form>
+    );
+  }
+};
 
-}
-
-export default EditableText
+export default EditableText;

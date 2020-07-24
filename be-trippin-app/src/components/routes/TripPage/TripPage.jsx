@@ -100,6 +100,7 @@ const updateTitle = async title => {
         packingListData={trip.packingList}
         setTrip={setTrip}
       />
+
     )};
     return (
         <div className="trip-page">
@@ -109,13 +110,14 @@ const updateTitle = async title => {
                 packingListData={trip.packingList}
             />
             {showPackingList}
+              <div className="google-container">
             {trip.stops ? (
                 <>
                     <LocationSearch addStop={addStop} numStops={trip.stops.length} />
                     <Map
                         loadingElement={<div style={{ height: `100%` }} />}
                         containerElement={
-                          <div className="google-map" />
+                          <div className='google-map' />
                          }
                         mapElement={<div style={{ height: `100%` }} />}
                         stops={trip.stops}
@@ -125,12 +127,14 @@ const updateTitle = async title => {
                     <h2>Loading Map...</h2>
                 )}
             {trip.stops ? <StopList trip={trip} setTrip={setTrip} refreshTrip={refreshTrip} /> : ""}
+                 </div>
           <CountdownTimer
             match={match}
             departureDateBackend={trip.departureDate}
             setTrip={setTrip}
           />
         </div>
+
   );
 };
 
