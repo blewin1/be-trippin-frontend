@@ -52,7 +52,7 @@ const StopCard = ({ stop, setTrip, refreshTrip, tripId, reorder, first, last }) 
                             <span className="remove-item" onClick={() => removeTodo(i)}>X</span>
                         </div>)}
                 </ul>
-                <ListForm placeholder="Add a Todo Item" handleSubmit={addToDo} />
+                <ListForm className='stop-card-list-form' placeholder="Add a to-do at this stop" handleSubmit={addToDo} />
             </div>
             <span className='remove-stop' onClick={removeStop}>X</span>
             {!first ? <span className="reorder-up" onClick={() => reorder('UP')}>^</span> : ''}
