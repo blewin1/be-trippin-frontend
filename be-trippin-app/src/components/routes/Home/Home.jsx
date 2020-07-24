@@ -47,7 +47,7 @@ const Home = ({ history }) => {
        <br></br>
        <section className="par2">
        <h2 className="trips1">Get Started!</h2>
-       <h2 className="trips lax" data-lax-preset="driftRight-3500">Get Started!</h2>
+       <h2 className="trips">Get Started!</h2>
        <br></br>
        <br></br>
        </section>
