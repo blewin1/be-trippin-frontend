@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Zetta&display=swap");
+
 * {
   box-sizing: border-box;
 }
 .trip-page {
+  padding-top: 20px;
   position: relative;
   height: 100%;
 
@@ -9,6 +12,7 @@
     font-size: 30px;
     font-weight: bold;
     margin-top: 150px;
+    font-family: "Lexend Zetta", sans-serif;
   }
 }
 
