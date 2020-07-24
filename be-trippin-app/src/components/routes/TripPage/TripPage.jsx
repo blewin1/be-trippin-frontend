@@ -13,13 +13,13 @@ import EditableText from "../../shared/EditableText/EditableText";
 
 const TripPage = ({ match }) => {
     const [packingListOpen, setPackingListOpen] = useState(false);
+    const [stops, setStops] = useState([]);
     const [trip, setTrip] = useState({});
-
-    // const [departureDateBackend, setDepartureDate] = useState("");
 
     useEffect(() => {
         refreshTrip();
     }, []);
+
 
     const refreshTrip = async () => {
         try {
@@ -85,7 +85,7 @@ const TripPage = ({ match }) => {
     const updateTitle = async title => {
         try {
             const tripData = await axios.put(`${apiUrl}/trips/${match.params.id}/`, { name: title });
-            setTrip(tripData.data)
+            refreshTrip()
         } catch (err) {
             console.error('ERROR UPDATING TITLE', err);
         }
@@ -100,9 +100,9 @@ const TripPage = ({ match }) => {
                 packingListData={trip.packingList}
                 setTrip={setTrip}
             />
-        )
-    }
 
+        )
+    };
     return (
         <div className="trip-page">
             <EditableText value={trip.name} className='title' handleSubmit={updateTitle} />
@@ -110,29 +110,32 @@ const TripPage = ({ match }) => {
                 suitcaseClickHandler={handleSuitcaseButton}
                 packingListData={trip.packingList}
             />
-            {showPackingList}
-            {trip.stops ? (
-                <>
-                    <LocationSearch addStop={addStop} numStops={trip.stops.length} />
-                    <Map
-                        loadingElement={<div style={{ height: `100%` }} />}
-                        containerElement={<div style={{ height: `500px` }} />}
-                        mapElement={<div style={{ height: `100%` }} />}
-                        stops={trip.stops}
-                    />
-                </>
-            ) : (
-                    <h2>Loading Map...</h2>
-                )}
-            {trip.stops ? <StopList trip={trip} setTrip={setTrip} refreshTrip={refreshTrip} /> : ""}
             <CountdownTimer
                 match={match}
                 departureDateBackend={trip.departureDate}
-                // Below code doesn't give most updated departureDate in the countdown component
-                // departureDateBackend={departureDateBackend}
                 setTrip={setTrip}
             />
+            {showPackingList}
+            <div className="google-container">
+                {trip.stops ? (
+                    <>
+                        <LocationSearch addStop={addStop} numStops={trip.stops.length} />
+                        <Map
+                            loadingElement={<div style={{ height: `100%` }} />}
+                            containerElement={
+                                <div className='google-map' />
+                            }
+                            mapElement={<div style={{ height: `100%` }} />}
+                            stops={trip.stops}
+                        />
+                    </>
+                ) : (
+                        <h2>Loading Map...</h2>
+                    )}
+                {trip.stops ? <StopList trip={trip} setTrip={setTrip} refreshTrip={refreshTrip} /> : ""}
+            </div>
         </div>
+
     );
 };
 
