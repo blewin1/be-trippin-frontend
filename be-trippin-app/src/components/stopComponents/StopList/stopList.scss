@@ -3,4 +3,13 @@
 .stop-list {
   display: grid;
   grid-template-columns: 1fr;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .stop-list {
+    width: 40vw;
+  }
 }

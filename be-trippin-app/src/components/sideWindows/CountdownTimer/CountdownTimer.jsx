@@ -31,7 +31,7 @@ const CountdownTimer = ({ match, departureDateBackend, setTrip }) => {
     event.preventDefault();
     // user input is sent to backend
     addDeparture(input);
-    // this allows us to set "input" as "departureDate" so input field can be cleared after clicking submit
+    // this allows me to set "input" as "departureDate" so I can clear the input field after clicking submit
     setDepartureDate(input);
     setInput("");
   };
@@ -51,7 +51,7 @@ const CountdownTimer = ({ match, departureDateBackend, setTrip }) => {
     }
   };
 
-  // configured to get backend input to parse into timer
+  // now configured to get backend input to parse into timer
   const getTimeUntil = (inputTime) => {
     const time = Date.parse(inputTime) - Date.parse(new Date());
     const days = Math.floor(time / (1000 * 60 * 60 * 24));
@@ -77,6 +77,7 @@ const CountdownTimer = ({ match, departureDateBackend, setTrip }) => {
     const year = new Date(departureDateBackend).getFullYear();
     // Not sure why the month is subtracting a number so had to add 1
     displayDate = `${month + 1}/${date}/${year}`;
+    // console.log("displayDate: ", displayDate);
   }
 
   return (
