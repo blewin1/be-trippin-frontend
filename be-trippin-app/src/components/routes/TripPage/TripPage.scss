@@ -1,14 +1,30 @@
-.trip-page {
-  position: relative;
+// * {
+//   border: 1px solid gold;
+// }
 
-  .title {
-    font-size: 30px;
-    font-weight: bold;
-  }
+.trip-page {
+  // position: relative;
+
+  // .title {
+  //   font-size: 30px;
+  //   font-weight: bold;
+  // }
 }
 
 @media only screen and (min-width: 768px) {
-  .trip-page {
-    display: grid;
+  .flexboxcontainer {
+    display: flex;
+    justify-content: space-between;
+    // border: 1px solid blue;
+  }
+  .title {
+    // border: 2px solid purple;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .google-map {
+    height: 300px;
+    width: 300px;
+    border: 2px solid red;
   }
 }

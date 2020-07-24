@@ -1,35 +1,51 @@
 @import "../../../_config.scss";
 
 .suitcase-button-container {
-  position: relative;
-  width: 50px;
+  // position: relative;
+  // width: 50px;
+  // border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .suitcase-button {
-  position: absolute;
   border-radius: 10px;
   box-shadow: 1px 1px 4px 1px rgba(50, 100, 255, 0.9);
-  left: 0;
-  z-index: 2;
   cursor: pointer;
   background-color: rgba(8, 105, 114, 1);
   border: none;
-  margin: 15px 20px;
+  // position: absolute;
+  // left: 0;
+  // z-index: 1;
+  // margin: 15px 20px;
+  // border: 1px solid blue;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .suitcase-button img {
   width: 60px;
+  height: 60px;
 }
 
+.suitcase-text,
 .suitcase-button-overlay {
-  position: absolute;
+  display: none;
+}
 
-  width: 100%;
-  height: 100%;
+/*
+.suitcase-button-overlay {
+  // position: absolute;
+  // width: 100%;
+  // height: 100%;
   transition: all 0.3s ease-out;
-  opacity: 0;
+  opacity: 1;
   transform: translate(31px, 46px);
-  z-index: 4;
+  // z-index: 2;
 }
 
 .suitcase-button-container:hover .suitcase-button-overlay {
@@ -37,9 +53,9 @@
 }
 
 .suitcase-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
   border-radius: 5px;
   padding: 2px;
   font-weight: 700;
@@ -47,3 +63,4 @@
   font-size: 1.2rem;
   background-color: rgba(170, 218, 255, 0.8);
 }
+*/
