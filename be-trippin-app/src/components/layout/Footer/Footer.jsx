@@ -4,7 +4,7 @@ import './footer.scss'
 const Footer = () => {
     return (
         <footer>
-            <span>Copyright &copy; 2020-<script type="text/JavaScript">document.write(new Date().getFullYear())</script> Be Trippin All Rights Reserved</span>
+            <span>Copyright &copy; 2020-<span>{(new Date().getFullYear())}</span> Be Trippin All Rights Reserved</span>
         </footer>
     )
 }
