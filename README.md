@@ -1,5 +1,5 @@
 # be-trippin-frontend
 
-React Project for planning Roadtrips, incorporating google maps
+React Project for planning roadtrips, incorporating Google Maps
 
-<a href="https://be-trippin.netlify.app/" target="_blank">Check out the live site</a>
+[Check out the live site](https://be-trippin.netlify.app/)
