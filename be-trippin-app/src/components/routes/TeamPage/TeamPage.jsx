@@ -31,13 +31,7 @@ const TeamPage = () => {
       </div><div className="jen">
         <div className="inner">
           <h4>Zhijie (Jenny) Xu</h4>
-          <span className="resume">Im a software developer who specializes
-          in web design, front-end development as well as user experiences.
-          My tenure in the entertainment field working with a number of different
-          companies in multiple industries has fortified my skills in curating their
-          visual ideas and concepts into a way that consumers can find relatable and
-          digest. In the future I plan to continue to be the link between fresh new
-                 ideas and innovative solutions. </span>
+          <span className="resume">Jenny is a CS senior at SJSU who loves making various web applications (like Be Trippin 😏), and exploring new topics in the algorithms world, such as AI &#38; Machine Learning.</span>
         </div>
       </div><div className="ben">
         <div className="inner">
